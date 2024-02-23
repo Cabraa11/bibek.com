@@ -310,14 +310,14 @@ html {
     position: absolute;
     bottom: 3%;
     left: 50px;
-    background-image: url('/images/aesthetic-backround-view-amazon-book-button.jpg');
+    background-image: url('images/aesthetic-backround-view-amazon-book-button.jpg');
     transition-duration: 0.3s;
 }
 
 
 
 .amazon-book-link-life30:hover {
-    background-image: url('/images/aesthetic-backround-view-amazon-book-button-hover.jpg');
+    background-image: url('images/aesthetic-backround-view-amazon-book-button-hover.jpg');
     transition-duration: 0.3s;
     
 }
