@@ -18,35 +18,86 @@
     </head>
 
     <body class="bibek-body1">
-        <div class="header-div">
+           <div class="header-div">
             <img class="most-recommended-books-img" src="images/Most_redommended_books.png" href="most recommended books logo">
             <span id="menu-symbol" class="material-symbols-outlined">
                 menu
                 </span>
+            <div class="user-login">
+                <h1 class="user-login-question">
+                    Do you want us to say hi?
+                </h1>
+                <div class="user-login-question-yes-no-buttons-div">
+                    <button class="user-login-question-answer-yes" type="button">yes</button>
+                    <div class="userYesQuestionAnswerBig hidden">
+                        <p class="questionBigYesText">yes</p>
+                    </div>
+                    <button class="user-login-question-answer-no " type="button">no</button>
+                    <div class="userNoQuestionAnswerBig  hidden ">
+                        <p class="questionBigNoText">no</p>
+                    </div>
+                </div>
+            </div>
+            <div class="answerYesModalLogin hidden">
+                <div class="modalHeader">
+                   <h1 class="modalTitle">Give us your Data!</h1>
+                   <p class="justKidding">just kidding, we don't want your data, right?</p>
+                </div>
+                <div class="inputs">
+                   <input class="inputName" type="text" placeholder="name">
+                   <input class="inputEmail" type="email" placeholder="email">
+                </div>
+                <h2 class="emptyValuesMessage hidden">write something please</h2>
+                 <h2 class="emptyValuesMessage2 hidden">you forgot one thing...</h2>
+                 <h2 class="emailNotValidMessage hidden">not a valid email</h2>
+                 <button class="inputsOkButton">OK</button>
+                 <button class="cancelModalButton">X</button>
+            </div>
+            <div class="welcomeUserMessage">
+            </div>
         </div>
-
+        
         <div class="elon-101-recommended-books-div0">
             <img class="musk-smoking" src="images/musk-smoking.jpg">
-        <h1 class="title1"></h1>
-        <p class="guess-elon-money">Guess Elon's Net Worth</p>
+            <h1 class="title1"></h1>
+            <p class="guess-elon-money">Guess Elon's Net Worth</p>
 
-        <div class="true-false-buttons-guess-elon-money-div">
-            <button class="True-button-guess-elon-money" type="button">True</button>
-            <button class="False-button-guess-elon-money" type="button">False</button>
-        </div>
-
-        <p class="True-button-guess-elon-money-response"></p>
-        <div class="elon-info">
-            <p class="elon-summary">Elon Reeve Musk is an engineer & tech entrepeneur.</p>
-        <div class="elon-profile-more-info">
-            <a class="more-info-elon-wiki" href="https://en.wikipedia.org/wiki/Elon_Musk">more info</a>
-            <p class="divider">|</p>
-            <a href="https://twitter.com/elonmusk"><img class="x-logo-elon-profile" src="images/x-logo.jpg"></a>
-        </div>
-        <div class="elon-book-recommendations-div">
+           <div class="true-false-buttons-guess-elon-money-div">
+               <button class="True-button-guess-elon-money" type="button">True</button>
+               <button class="False-button-guess-elon-money" type="button">False</button>
+            </div>
+            <!--True button modal -->
+            <div class="weDontKnowModal hidden">
+                <div class="weDontKnowModalContent">
+                    <h1 class="dontKnowTitle">Well, it really can't be known</h1>
+                <p class="dontKnowMessage">But you can check it out here</p>
+                <a class="netWorthLink" href="https://www.forbes.com/profile/elon-musk/?list=rtb/&sh=7c5f568c7999"><div class="dontKnowLink"><p class="liveNetWorthText">Live Net Worth</p>
+                </div></a>
+                </div>
+                <button class="cancelModalButton2">X</button>
+            </div>
+            <!--False button modal -->
+            <div class="weDontKnowModal hidden">
+                <div class="weDontKnowModalContent">
+                    <h1 class="dontKnowTitle">You're 99.99% right</h1>
+                <p class="dontKnowMessage">You can check an estimate of it here</p>
+                <a class="netWorthLink" href="https://www.forbes.com/profile/elon-musk/?list=rtb/&sh=7c5f568c7999"><div class="dontKnowLink"><p class="liveNetWorthText">Live Net Worth</p>
+                </div></a>
+                </div>
+                <button class="cancelModalButton3">X</button>
+            </div>
+            <p class="True-button-guess-elon-money-response"></p>
+            <div class="elon-info">
+                <p class="elon-summary">Elon Reeve Musk is an engineer & tech entrepeneur.</p>
+                <div class="elon-profile-more-info">
+                  <a class="more-info-elon-wiki" href="https://en.wikipedia.org/wiki/Elon_Musk">more info</a>
+                  <p class="divider">|</p>
+                  <a href="https://twitter.com/elonmusk"><img class="x-logo-elon-profile" src="images/x-logo.jpg"></a>
+                </div>
+            <div    class="elon-book-recommendations-div">
             <div
                 class="elon-101-recommended-books-div">
-                <h1 class="elon-101-recommended-books">101 Recommended Books</h1>
+                <h1 class="elon-101-recommended-books"></h1>
             </div>
             <div class="life30-div">
                 <div class="life30-img-div">
@@ -72,7 +123,9 @@
                         <p class="life30-elon-quote">"A compelling guide to the challenges and choices in our quest for a great future of life, intelligence, and consciousness on Earth and beyond."</p>
                 </div>
                 <a href="https://www.amazon.com/Life-3-0-Being-Artificial-Intelligence/dp/1101946598">
-                    <div class="amazon-book-link-life30"><p class="life30-amazon">Look on Amazon</p></div></a>
+                    <div class="amazon-book-link-life30"><p class="life30-amazon">Look on Amazon</p>
+                    </div></a>
+            
             </div>
             <div class="OnWar-div">
                 <div class="OnWar-img-div">
@@ -129,8 +182,6 @@
                 <a href="https://www.amazon.com.mx/Superintelligence-Director-Humanity-Institute-Bostrom/dp/0199678111">
                 <div class="amazon-book-link-Superintelligence"><p class="life30-amazon">Look on Amazon</p></div></a>
             </div>
-        
-
             <div class="elon-images-story">
                 <img class="elon-img-1" src="images/elon1.png" href="Elon as a baby">
             </div>
@@ -142,8 +193,13 @@
         </div>
         
         <button class="changeuser-button">Change User</button>
-        <h1 class="username-greetings"></h1>
-        <a class="jeff-bezos-page-link" href="new.html"><h1 class="jeff-bezos-page-text">What about Bezos?</h1></a>
-        <script src="scripts/test.js"></script>
+        
+        <a class="jeff-bezos-page-link" href="new.html"><h1 class="jeff-bezos-page-text">What about Bezos?</h1></a> 
+        
+     <div class="overlay hidden"></div>
+
+        
+     <script src="scripts/test.js"></script>
     </body>
 </html>
+
