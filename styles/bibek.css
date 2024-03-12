@@ -1,6 +1,27 @@
 html {
   width: 430px;
   height: 3320px;
+  transition-duration: 0.5s;
+}
+.DarkWhiteModeDiv {
+  background-color: #00b132;
+  width: 75px;
+  height: 35px;
+  border-radius: 20px;
+  position: absolute;
+  left: 290px;
+  top: 40%;
+}
+.sexyCircle {
+  background-color: #ffffff;
+  width: 30px;
+  height: 29px;
+  border-radius: 60px;
+  position: relative;
+  /* Active = 41px*/
+  left: 4px;
+  top: 8%;
+  transition-duration: 0.5s;
 }
 .overlay {
   position: absolute;
@@ -111,6 +132,7 @@ html {
   width: fit-content;
   height: fit-content;
 }
+/*Original ModalLogin top = 230px*/
 .answerYesModalLogin {
   background-color: #ffffff;
   width: 300px;
