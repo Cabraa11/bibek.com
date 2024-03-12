@@ -85,10 +85,20 @@ elonImg1.addEventListener("click", function () {
 });
 
 // If the user clicks "change user" button, make the login modal appear again.
-let myButton = document.querySelector(".changeuser-button");
-let myHeading = document.querySelector(".username-greetings");
+const changeUserButton = document.querySelector(".changeuser-button");
 
-// myButton.textContent = setUserName().value;
+changeUserButton.addEventListener("click", function () {
+  modalLogin.style.top = "2600px";
+  modalLogin.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+
+  // If the "welcome [user] header message appears, eliminate the login question"
+
+  if (welcomeUserMessage.textContent !== "") {
+    userLoginDiv.remove("hidden");
+  }
+});
+// changeUserButton.textContent = setUserName().value;
 
 // When user clicks the no button for the "Do you want us to say hi?" question
 const questionAnswerNo = document.querySelector(
@@ -192,3 +202,23 @@ cancelmodal.addEventListener("click", function () {
   modalLogin.classList.add("hidden");
   overlay.classList.add("hidden");
 });
+
+// Dark & White Mode button On and Off
+const circleButton = document.querySelector(".sexyCircle");
+const overallButton = document.querySelector(".DarkWhiteModeDiv");
+const htmlBody = document.querySelector("html");
+
+let isOriginalButtonStyle = true;
+
+overallButton.addEventListener("click", function () {
+  if (isOriginalButtonStyle) {
+    circleButton.style.left = "41px";
+    htmlBody.style.backgroundColor = "#000000";
+  } else {
+    circleButton.style.left = "4px";
+    htmlBody.style.backgroundColor = "transparent";
+  }
+
+  isOriginalButtonStyle = !isOriginalButtonStyle;
+});
+
