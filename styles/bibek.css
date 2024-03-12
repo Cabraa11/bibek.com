@@ -1,946 +1,1373 @@
 html {
-    width: 430px;
-    height: 3320px;
+  width: 430px;
+  height: 3320px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3320px;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+.hidden {
+  display: none;
+}
+.user-login {
+  background-color: rgb(202, 191, 191);
+  width: 200px;
+  height: 60px;
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 5px;
 }
 
+.user-login-question-yes-no-buttons-div {
+  background-color: transparent;
+  text-align: center;
+  position: relative;
+  top: -10%;
+}
+.user-login-question {
+  font-size: 15px;
+  font-family: "Arial";
+  text-align: center;
+}
+.user-login-question-answer-no {
+  background-color: #a91313;
+  color: #dadada;
+  border: 1px solid black;
+  position: relative;
+  font-size: 13px;
+  border-radius: 5px;
+  position: relative;
+  top: 0px;
+  left: 1px;
+}
+.user-login-question-answer-no:hover {
+  background-color: #df2727;
+  color: #dadada;
+  border: 1px solid black;
+  position: relative;
+  font-size: 13px;
+  border-radius: 5px;
+}
+.userNoQuestionAnswerBig {
+  width: 198px;
+  height: 58px;
+
+  background-color: #a91313;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+  top: -50px;
+  border: 1px solid black;
+  transition-duration: 1s;
+}
+.questionBigNoText {
+  position: relative;
+  top: 18.9px;
+  left: 20px;
+  font-family: "Arial";
+  font-size: 13px;
+  color: #ffffff;
+}
+.user-login-question-answer-yes {
+  background-color: #1e7d0b;
+  color: #dadada;
+  border: 1px solid black;
+  font-size: 13px;
+  border-radius: 5px;
+  position: relative;
+  left: -2.5px;
+}
+.user-login-question-answer-yes:hover {
+  background-color: #359223;
+  color: #dadada;
+  border: 1px solid black;
+  font-size: 13px;
+  border-radius: 5px;
+}
+.userYesQuestionAnswerBig {
+  width: 198px;
+  height: 58px;
+  background-color: #1e7d0b;
+  border-radius: 5px;
+  position: relative;
+  top: -50px;
+  border: 1px solid black;
+}
+.questionBigYesText {
+  position: relative;
+  top: 19px;
+  left: 70px;
+  font-family: "Arial";
+  font-size: 13px;
+  color: #ffffff;
+  width: fit-content;
+  height: fit-content;
+}
+.answerYesModalLogin {
+  background-color: #ffffff;
+  width: 300px;
+  height: 310px;
+  position: absolute;
+  top: 230px;
+  left: 15%;
+  z-index: 10;
+  border-radius: 10px;
+  border: 2px solid rgb(220, 220, 220);
+}
+.modalTitle {
+  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
+  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
+  background-size: 190% 200%;
+  background-position: 100% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+  position: absolute;
+  top: -23px;
+  left: 8%;
+  font-family: "Arial";
+  font-size: 29px;
+  width: 257px;
+}
+.modalHeader {
+  height: 60px;
+  position: relative;
+  top: 35px;
+  transition-duration: 0.5s;
+}
+.inputName {
+  border-color: #8613ce;
+  border-radius: 10px;
+  text-align: center;
+  position: absolute;
+  top: 44px;
+  width: 200px;
+  height: 30px;
+}
+.inputName::placeholder {
+  border-color: #a48da5;
+  font-family: "Arial";
+  font-size: 24px;
+}
+.inputEmail::placeholder {
+  color: #a48da5;
+  font-family: "Arial";
+  font-size: 23px;
+}
+.inputName:valid {
+  border-color: #00b132;
+  font-family: "Arial";
+}
+.inputName:invalid {
+  border-color: #b12300;
+  font-family: "Arial";
+}
+.inputEmail {
+  border-color: #8613ce;
+  border-radius: 10px;
+  text-align: center;
+  position: absolute;
+  top: 90px;
+  width: 200px;
+  height: 29px;
+}
+.inputEmail::placeholder {
+  color: #a48da5;
+  font-family: "Arial";
+}
+.inputEmail:valid {
+  border-color: #00b132;
+  font-family: "Arial";
+}
+.inputEmail:invalid {
+  border-color: #b12300;
+  font-family: "Arial";
+}
+.inputs {
+  position: relative;
+  left: 15%;
+  top: 45px;
+}
+.inputsOkButton {
+  width: 200px;
+  height: 39px;
+  border-radius: 10px;
+  background-image: url(/images/aesthetic-backround-view-amazon-book-button.jpg);
+  color: white;
+  font-weight: bold;
+  border: transparent;
+  transition-duration: 0.5s;
+  position: absolute;
+  top: 250px;
+  left: 16.5%;
+}
+.cancelModalButton {
+  border: 1px solid rgb(194, 194, 194);
+  border-radius: 3px;
+  border-top-right-radius: 10px;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  top: -76px;
+  left: 272px;
+}
+.cancelModalButton2 {
+  border: 1px solid rgb(194, 194, 194);
+  border-radius: 3px;
+  border-top-right-radius: 10px;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  top: -120px;
+  left: 272px;
+}
+.cancelModalButton2:hover {
+  border: 1px solid rgb(255, 0, 0);
+  border-radius: 3px;
+  border-top-right-radius: 10px;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  top: -120px;
+  left: 272px;
+  color: red;
+  font-weight: bold;
+  transition-duration: 0.1s;
+}
+.cancelModalButton2:active {
+  border: 1px solid rgb(104, 0, 0);
+  border-radius: 3px;
+  border-top-right-radius: 10px;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  top: -120px;
+  left: 272px;
+  color: white;
+  background-color: red;
+}
+.cancelModalButton3 {
+  border: 1px solid rgb(194, 194, 194);
+  border-radius: 3px;
+  border-top-right-radius: 10px;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  top: -76px;
+  left: 272px;
+}
+.cancelModalButton3 {
+  border: 1px solid rgb(194, 194, 194);
+  border-radius: 3px;
+  border-top-right-radius: 10px;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  top: -120px;
+  left: 272px;
+}
+.cancelModalButton3:hover {
+  border: 1px solid rgb(255, 0, 0);
+  border-radius: 3px;
+  border-top-right-radius: 10px;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  top: -120px;
+  left: 272px;
+  color: red;
+  font-weight: bold;
+  transition-duration: 0.1s;
+}
+.cancelModalButton3:active {
+  border: 1px solid rgb(104, 0, 0);
+  border-radius: 3px;
+  border-top-right-radius: 10px;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  top: -120px;
+  left: 272px;
+  color: white;
+  background-color: red;
+}
+.weDontKnowModalContent {
+  position: relative;
+  top: 20px;
+}
+.cancelModalButton:hover {
+  border: 1px solid rgb(255, 0, 0);
+  border-radius: 3px;
+  border-top-right-radius: 10px;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  top: -76px;
+  left: 272px;
+  color: red;
+  font-weight: bold;
+  transition-duration: 0.1s;
+}
+.cancelModalButton:active {
+  border: 1px solid rgb(104, 0, 0);
+  border-radius: 3px;
+  border-top-right-radius: 10px;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  top: -76px;
+  left: 272px;
+  color: white;
+  background-color: red;
+}
+.emptyValuesMessage {
+  font-size: 12.5px;
+  color: rgb(140, 3, 164);
+  font-family: "Arial";
+  position: absolute;
+  top: 100px;
+  left: 27%;
+}
+.emptyValuesMessage2 {
+  font-size: 12.5px;
+  color: rgb(140, 3, 164);
+  font-family: "Arial";
+  position: absolute;
+  top: 118px;
+  left: 30%;
+}
+.emailNotValidMessage {
+  font-size: 12.5px;
+  color: rgb(140, 3, 164);
+  font-family: "Arial";
+  position: absolute;
+  top: 135px;
+  left: 34%;
+}
+.welcomeUserMessage {
+  font-size: 40px;
+  position: relative;
+  top: 75px;
+  text-align: center;
+  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
+  background-size: 190% 200%;
+  background-position: 100% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.inputsOkButton:hover {
+  width: 200px;
+  height: 39px;
+  border-radius: 10px;
+  background-image: url(/images/aesthetic-backround-view-amazon-book-button-hover.jpg);
+  color: white;
+  font-weight: bold;
+  border: transparent;
+  position: absolute;
+  top: 250px;
+  left: 16%;
+}
+.justKidding {
+  font-family: "Arial";
+  position: relative;
+  top: 29px;
+  left: 7%;
+  font-size: 14px;
+  width: 260px;
+  text-align: center;
+  color: #000000;
+}
+.weDontKnowModal {
+  background-color: #d6d6d6;
+  border: 2px solid rgb(158, 158, 158);
+  width: 300px;
+  height: 160px;
+  border-radius: 10px;
+  z-index: 10;
+  position: relative;
+  top: -200px;
+  left: 13.5%;
+}
+.dontKnowTitle {
+  text-align: center;
+  font-size: 20px;
+  font-family: "Arial";
+  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
+  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
+  background-size: 190% 200%;
+  background-position: 100% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.dontKnowMessage {
+  font-family: "Arial";
+  text-align: center;
+}
+.dontKnowLink {
+  background-color: #00b132;
+  width: 130px;
+  height: 30px;
+  border-radius: 20px;
+  background-image: url(/images/aesthetic-backround-view-amazon-book-button.jpg);
+  transition-duration: 0.1s;
+  border: 1px solid rgb(121, 33, 131);
+  display: block;
+  margin: auto;
+}
+.dontKnowLink:hover {
+  background-color: #00b132;
+  width: 130px;
+  height: 30px;
+  border-radius: 20px;
+  background-image: url(/images/aesthetic-backround-view-amazon-book-button-hover.jpg);
+  transition-duration: 0.1s;
+  border: 1px solid rgb(195, 39, 213);
+}
+.netWorthLink {
+  text-decoration: none;
+}
+.liveNetWorthText {
+  font-family: "Arial";
+  text-align: center;
+  position: relative;
+  top: -8.5px;
+  color: white;
+  font-weight: 500;
+}
 .title1 {
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    position: relative;
-    top: 50px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 330px;
-    font-family: "Roboto";
-    max-width: fit-content;
-    max-height: fit-content;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  position: relative;
+  top: 160px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 330px;
+  font-family: "Roboto";
+  max-width: fit-content;
+  max-height: fit-content;
 }
 
 #menu-symbol {
-    position: relative;
-    left: 150px;
-    top: 23px;
-    font-size: 34px;
-
+  position: relative;
+  left: 150px;
+  top: 23px;
+  font-size: 34px;
 }
 .header-div {
-    width: 430px;
-    height: 100px;
-    position: relative;
-    left: -8px;
-    top: -21px;
-    background-color: rgb(255, 255, 255)222, 222, 222;
-    border-bottom: 1px solid black;
+  width: 430px;
+  height: 100px;
+  position: relative;
+  left: -8px;
+  top: -21px;
+  background-color: rgb(255, 255, 255) 222, 222, 222;
+  border-bottom: 1px solid black;
 }
-.elon-101-recommended-books-div0 {
-    position: relative;
-    top: 100px;
-}
-.elon-101-recommended-books-div {
-    border: 1px solid black;
-    border-radius: 7px;
-    width: 200px;
-    height: 20px;
-    position: relative;
 
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.elon-101-recommended-books-div {
+  border: 1px solid transparent;
+  border-radius: 7px;
+  width: 200px;
+  height: 0px;
+  position: relative;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .elon-101-recommended-books {
-    font-family: "Roboto";
-    position: relative;
-    top: -9.5px;
-    left: 11px;
-    width: fit-content;
-    font-size: 15px;
-    color: rgb(164, 20, 212);
-    text-decoration: underline;
+  font-family: "Roboto";
+  position: relative;
+  top: -0.5px;
+  left: 11px;
+  width: fit-content;
+  font-size: 15px;
+  color: rgb(164, 20, 212);
+  text-decoration: underline;
 }
 .elon-book-recommendations-div {
-    position: relative;
-    top: 100px;
+  position: relative;
+  top: 100px;
 }
 .most-recommended-books-img {
-    position: relative;
-    block-size: 50px;
-    top: 30px;
-    left: 15px;
+  position: relative;
+  block-size: 50px;
+  top: 30px;
+  left: 15px;
 }
 
 .author-info-life30-div-circle {
-    background-color: rgb(255, 255, 255);
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 100px;
-    width: 25px;
-    height: 25px;
-    position: relative;
-    top: -1px;
-    left: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 100px;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top: -1px;
+  left: 10px;
 }
 .author-info-life30-p {
-    font-family: "Roboto";
-    font-weight: 500;
-    width: 100px;
-    position: relative;
-    top: -41px;
-    left: 39px;
-
+  font-family: "Roboto";
+  font-weight: 500;
+  width: 100px;
+  position: relative;
+  top: -41px;
+  left: 39px;
 }
 #author-info-life30 {
-    position: relative;
-    top: 0px;
-    left: 0.4px;
+  position: relative;
+  top: 0px;
+  left: 0.4px;
 }
 
 .musk-smoking {
-    border-radius: 19px;
-    block-size: 150px;
-    position: relative;
-    top: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  border-radius: 19px;
+  block-size: 150px;
+  position: relative;
+  top: 90px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .elon-summary {
-    font-family: "Roboto";
-    font-weight: 400;
-    position: relative;
-    top: 60px;
-    left: 100px;
-    width: 50%;
-    text-align: center;
-    
-
+  font-family: "Roboto";
+  font-weight: 400;
+  position: relative;
+  top: 60px;
+  left: 100px;
+  width: 50%;
+  text-align: center;
 }
-
-
+.elon-info {
+  position: relative;
+  top: 90px;
+}
 .elon-profile-more-info {
-    background-color: rgb(255, 255, 255);
-    width: 116px;
-    height: 25px;
-    position: relative;
-    top: 45px;
-    left: 145px;
+  background-color: rgb(255, 255, 255);
+  width: 116px;
+  height: 25px;
+  position: relative;
+  top: 45px;
+  left: 145px;
 }
-
 
 .more-info-elon-wiki {
-    text-decoration: none;
-    font-family: "Roboto";
-    font-weight: bold;
-    position: relative;
-    top: 3px;
-    left: 3px;
+  text-decoration: none;
+  font-family: "Roboto";
+  font-weight: bold;
+  position: relative;
+  top: 3px;
+  left: 3px;
 }
 .more-info-elon-wiki:hover {
-    text-decoration: none;
-    font-family: "Roboto";
-    font-weight: bold;
-    position: relative;
-    top: 3px;
-    left: 3px;
-    color: rgb(255, 0, 230);
+  text-decoration: none;
+  font-family: "Roboto";
+  font-weight: bold;
+  position: relative;
+  top: 3px;
+  left: 3px;
+  color: rgb(255, 0, 230);
 }
 .divider {
-    font-weight: bold;
-    position: relative;
-    width: fit-content;
-    top: -32px; 
-    left: 75px;
-    font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  width: fit-content;
+  top: -32px;
+  left: 75px;
+  font-size: 16px;
 }
 .x-logo-elon-profile {
-    border-radius: 140px;
-    block-size: 20px;
-    position: relative;
-    top: -66px;
-    left: 82px;
+  border-radius: 140px;
+  block-size: 20px;
+  position: relative;
+  top: -66px;
+  left: 82px;
 }
 .x-logo-elon-profile:hover {
-    border-radius: 140px;
-    block-size: 20px;
-    position: relative;
-    top: -67px;
-    left: 81px;
-    border: 1px solid rgb(255, 0, 230);
+  border-radius: 140px;
+  block-size: 20px;
+  position: relative;
+  top: -67px;
+  left: 81px;
+  border: 1px solid rgb(255, 0, 230);
 }
 .life30-div {
-    background-color: rgb(220, 220, 220);
-    position: relative;
-    top: 60px;
-    left: 0;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
-    height: 580px;
-    border-radius: 10px;
-    border: 1px solid rgb(93, 93, 93);
-    box-shadow: inset;
+  background-color: rgb(220, 220, 220);
+  position: relative;
+  top: 60px;
+  left: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 580px;
+  border-radius: 10px;
+  border: 1px solid rgb(93, 93, 93);
+  box-shadow: inset;
 }
 .life30-title-div {
-    position: relative;
-    top: -10px;
+  position: relative;
+  top: -10px;
 }
 .life30-img {
-    border-radius: 30px;
-    block-size: 300px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    object-fit: contain;
+  border-radius: 30px;
+  block-size: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  object-fit: contain;
 }
 .life30-title {
-    position: relative;
-    font-size: 23px;
-    top: 29px;
-    left: 7px;
-    background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
-    background-size: 190% 200%;
-    background-position: 100% 100%;    
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-top: 16px;
-    padding-bottom: 12px;
+  position: relative;
+  font-size: 23px;
+  top: 29px;
+  left: 7px;
+  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
+  background-size: 190% 200%;
+  background-position: 100% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 16px;
+  padding-bottom: 12px;
 
-    font-family: "Rubik";
-    font-weight: 500;
+  font-family: "Rubik";
+  font-weight: 500;
 }
 .life30-subtitle {
-    position: relative;
-    font-family: "Roboto";
-    top: 0px;
-    left: 8px;
-    font-size: 16px;
-    background: radial-gradient(rgb(17, 2, 17), rgb(98, 8, 125));
-    background-size: 190% 200%;
-    background-position: 100% 100%;    
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  position: relative;
+  font-family: "Roboto";
+  top: 0px;
+  left: 8px;
+  font-size: 16px;
+  background: radial-gradient(rgb(17, 2, 17), rgb(98, 8, 125));
+  background-size: 190% 200%;
+  background-position: 100% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .author-life30-div {
-    background-color: transparent;
-    width: 144px;
-    height: 33px;
-    position: relative;
-    top: -1px;
-    border-radius: 10px;
-    color: rgb(117, 32, 132);
+  background-color: transparent;
+  width: 144px;
+  height: 33px;
+  position: relative;
+  top: -1px;
+  border-radius: 10px;
+  color: rgb(117, 32, 132);
 }
 .author-life30-div-circle {
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-    width: 21px;
-    height: 24px;
-    border: 2px solid rgb(117, 32, 132);
-    position: relative;
-    left: -6.5px;
-    top: -60px;
-    block-size: 20px;
-    transition-duration: 0.2s;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  width: 21px;
+  height: 24px;
+  border: 2px solid rgb(117, 32, 132);
+  position: relative;
+  left: -6.5px;
+  top: -60px;
+  block-size: 20px;
+  transition-duration: 0.2s;
 }
 .author-life30-div-circle:hover {
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    width: 21px;
-    height: 24px;
-    position: relative;
-    left: -6.5px;
-    top: -60px;
-    block-size: 20px;
-    border: 2px solid rgb(117, 32, 132);
-    transition-duration: 0.2s;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 21px;
+  height: 24px;
+  position: relative;
+  left: -6.5px;
+  top: -60px;
+  block-size: 20px;
+  border: 2px solid rgb(117, 32, 132);
+  transition-duration: 0.2s;
 }
 .max-tegmark-author:hover {
-    font-weight: 900;
-    transition-duration: 0.2s;
+  font-weight: 900;
+  transition-duration: 0.2s;
 }
 
 #author-life30 {
-    position: relative;
-    top: -1px;
-    left: .3px;
-    font-size: 22px;
-    max-height: fit-content;
-    max-height: fit-content;
+  position: relative;
+  top: -1px;
+  left: 0.3px;
+  font-size: 22px;
+  max-height: fit-content;
+  max-height: fit-content;
 }
 #author-life30:hover {
-    position: relative;
-    top: -1px;
-    left: .3px;
-    font-size: 22px;
+  position: relative;
+  top: -1px;
+  left: 0.3px;
+  font-size: 22px;
 }
-.max-tegmark-author-link, .max-tegmark-author {
-    text-decoration: none;
-    font-family: "Roboto";
-    font-weight: 400;
-    position: relative;
-    top: 20px;
-    left: 14px;
-    width: 100px;
-    transition-duration: 0.2s;
-    color: rgb(117, 32, 132);
+.max-tegmark-author-link,
+.max-tegmark-author {
+  text-decoration: none;
+  font-family: "Roboto";
+  font-weight: 400;
+  position: relative;
+  top: 20px;
+  left: 14px;
+  width: 100px;
+  transition-duration: 0.2s;
+  color: rgb(117, 32, 132);
 }
 .max-tegmark-author {
-    position: relative;
-    top: -23px;
-    left: 24px;
+  position: relative;
+  top: -23px;
+  left: 24px;
 }
 
 .life30-elon-quote {
-    font-family: "Roboto";
-    font-style: italic;
-    position: relative;
-    font-size: 14px;
-    margin-top: 19px;
-    left: 0px;
-    top: -50px;
-    text-align: center;
-    width: 300px;
+  font-family: "Roboto";
+  font-style: italic;
+  position: relative;
+  font-size: 14px;
+  margin-top: 19px;
+  left: 0px;
+  top: -50px;
+  text-align: center;
+  width: 300px;
 }
 .amazon-book-link-life30 {
-    background-color: transparent;
-    width: 200px;
-    height: 40px;
-    border-radius: 10px;
-    position: absolute;
-    bottom: 3%;
-    left: 50px;
-    background-image: url(/images/aesthetic-backround-view-amazon-book-button.jpg);
-    transition-duration: 0.3s;
+  background-color: transparent;
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 3%;
+  left: 50px;
+  background-image: url(/images/aesthetic-backround-view-amazon-book-button.jpg);
+  transition-duration: 0.3s;
 }
 .jeff-bezos-page-link {
-    text-decoration: none;
+  text-decoration: none;
 }
 .jeff-bezos-page-text {
-    position: relative;
-    top: 366px;
-    text-align: center;
-    text-decoration: none;
-    color: #6b1a9e;
-    font-family: "Roboto";
-
+  position: relative;
+  top: 446px;
+  text-align: center;
+  text-decoration: none;
+  color: #6b1a9e;
+  font-family: "Roboto";
 }
 .jeff-bezos-page-text:hover {
-    position: relative;
-    top: 366px;
-    text-align: center;
-    text-decoration: none;
-    color: #31064c;
-    font-family: "Roboto";
-    font-weight: 400;
+  position: relative;
+  top: 446px;
+  text-align: center;
+  text-decoration: none;
+  color: #31064c;
+  font-family: "Roboto";
+  font-weight: 400;
 }
 .amazon-book-link-life30:hover {
-    background-image: url(/images/aesthetic-backround-view-amazon-book-button-hover.jpg);
-    transition-duration: 0.3s;
+  background-image: url(/images/aesthetic-backround-view-amazon-book-button-hover.jpg);
+  transition-duration: 0.3s;
 }
 
 .life30-amazon {
-    text-decoration: none;
-    font-family: "Roboto";
-    font-weight: 500;
-    position: absolute;
-    top: -11%;
-    left: 20%;
-    color: aliceblue;
+  text-decoration: none;
+  font-family: "Roboto";
+  font-weight: 500;
+  position: absolute;
+  top: -11%;
+  left: 20%;
+  color: aliceblue;
 }
 
 /* A 30px difference between div books */
 
 .OnWar-div {
-    background-color: rgb(220, 220, 220);
-    position: relative;
-    top: 90px;
-    left: 0;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
-    height: 550px;
-    border-radius: 10px;
-    border: 1px solid rgb(93, 93, 93);
-    box-shadow: inset;
+  background-color: rgb(220, 220, 220);
+  position: relative;
+  top: 90px;
+  left: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 550px;
+  border-radius: 10px;
+  border: 1px solid rgb(93, 93, 93);
+  box-shadow: inset;
 }
 .OnWar-title-div {
-    position: relative;
-    top: -88px;
-    
+  position: relative;
+  top: -88px;
 }
 .OnWar-img {
-    border-radius: 30px;
-    block-size: 430px;
-    width: 210px;
-    height: 300px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-
+  border-radius: 30px;
+  block-size: 430px;
+  width: 210px;
+  height: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 }
 .life30-img-div {
-    background-color: transparent;
-    width: 210px;
-    height: 300px;
-    border-radius: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    top: 20px;
-    overflow: hidden;
-    
+  background-color: transparent;
+  width: 210px;
+  height: 300px;
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 20px;
+  overflow: hidden;
 }
 .OnWar-img-div {
-    background-color: transparent;
-    width: 210px;
-    height: 300px;
-    border-radius: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    top: 20px;
-    overflow: hidden;
+  background-color: transparent;
+  width: 210px;
+  height: 300px;
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 20px;
+  overflow: hidden;
 }
 .OnWar-title {
-    position: relative;
-    font-size: 23px;
-    top: -36px;
-    left: 7px;
-    background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
-    background-size: 190% 200%;
-    background-position: 100% 100%;    
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-top: 16px;
-    padding-bottom: 12px;
+  position: relative;
+  font-size: 23px;
+  top: -36px;
+  left: 7px;
+  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
+  background-size: 190% 200%;
+  background-position: 100% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 16px;
+  padding-bottom: 12px;
 
-    font-family: "Rubik";
-    font-weight: 500;
+  font-family: "Rubik";
+  font-weight: 500;
 }
 .OnWar-subtitle {
-    position: relative;
-    font-family: "Roboto";
-    top: 13px;
-    left: 7px;
-    font-size: 16px;
+  position: relative;
+  font-family: "Roboto";
+  top: 13px;
+  left: 7px;
+  font-size: 16px;
 }
 .OnWar-elon-quote {
-    color: #000000;
-    font-family: "Roboto";
-    font-style: italic;
-    position: relative;
-    font-size: 14px;
-    margin-top: 19px;
-    left: 0px;
-    top: 19px;
-    text-align: center;
-    text-decoration: none;
-   
+  color: #000000;
+  font-family: "Roboto";
+  font-style: italic;
+  position: relative;
+  font-size: 14px;
+  margin-top: 19px;
+  left: 0px;
+  top: 19px;
+  text-align: center;
+  text-decoration: none;
 }
 .authorANDquote-div {
-    position: relative;
-    top: -12px;
+  position: relative;
+  top: -12px;
 }
 .authorANDquote-OnWar-div {
-    position: relative;
-    top: -2px;
+  position: relative;
+  top: -2px;
 }
 .authorANDquote-superintelligence-div {
-    position: relative;
-    top: -14px;
+  position: relative;
+  top: -14px;
 }
 .OnWar-elon-quote:hover {
-    color: #6e076e;
-    font-family: "Roboto";
-    font-style: italic;
-    font-weight: 500;
-    position: relative;
-    font-size: 14px;
-    margin-top: 19px;
-    left: 0px;
-    top: 19px;
-    text-align: center;
-    text-decoration: none;
-   
+  color: #6e076e;
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 500;
+  position: relative;
+  font-size: 14px;
+  margin-top: 19px;
+  left: 0px;
+  top: 19px;
+  text-align: center;
+  text-decoration: none;
 }
 .amazon-book-link-OnWar {
-    background-color: #698826;
-    width: 200px;
-    height: 40px;
-    border-radius: 10px;
-    position: absolute;
-    bottom: 3%;
-    left: 50px;
-    background-image: url('/images/aesthetic-backround-view-amazon-book-button.jpg');
-    transition-duration: 0.3s;
+  background-color: #698826;
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 3%;
+  left: 50px;
+  background-image: url("/images/aesthetic-backround-view-amazon-book-button.jpg");
+  transition-duration: 0.3s;
 }
 .author-symbol {
-    size-adjust: 300px;
+  size-adjust: 300px;
 }
-
 
 .amazon-book-link-OnWar:hover {
-    background-image: url('/images/aesthetic-backround-view-amazon-book-button-hover.jpg');
-    transition-duration: 0.3s;
-    
+  background-image: url("/images/aesthetic-backround-view-amazon-book-button-hover.jpg");
+  transition-duration: 0.3s;
 }
 .OnWar-amazon {
-    text-decoration: none;
-    font-family: "Roboto";
-    font-weight: 500;
-    position: absolute;
-    top: -11%;
-    left: 20%;
-    color: aliceblue;
+  text-decoration: none;
+  font-family: "Roboto";
+  font-weight: 500;
+  position: absolute;
+  top: -11%;
+  left: 20%;
+  color: aliceblue;
 }
 
 /* A 30px difference between div books */
 
 .Superintelligence-div {
-    background-color: rgb(220, 220, 220);
-    position: relative;
-    top: 120px;
-    left: 0;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 300px;
-    height: 550px;
-    border-radius: 10px;
-    border: 1px solid rgb(93, 93, 93);
-    box-shadow: inset;
+  background-color: rgb(220, 220, 220);
+  position: relative;
+  top: 120px;
+  left: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 550px;
+  border-radius: 10px;
+  border: 1px solid rgb(93, 93, 93);
+  box-shadow: inset;
 }
 .Superintelligence-title-div {
-    position: relative;
-    top: -10px;
+  position: relative;
+  top: -10px;
 }
 .Superintelligence-img {
-    border-radius: 30px;
-    block-size: 430px;
-    width: 210px;
-    height: 300px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-
+  border-radius: 30px;
+  block-size: 430px;
+  width: 210px;
+  height: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 }
 .Superintelligence-img-div {
-    background-color: transparent;
-    width: 210px;
-    height: 300px;
-    border-radius: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    top: 20px;
-    overflow: hidden;
+  background-color: transparent;
+  width: 210px;
+  height: 300px;
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 20px;
+  overflow: hidden;
 }
 .Superintelligence-img-div {
-    background-color: transparent;
-    width: 210px;
-    height: 300px;
-    border-radius: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    top: 20px;
-    overflow: hidden;
-    
+  background-color: transparent;
+  width: 210px;
+  height: 300px;
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 20px;
+  overflow: hidden;
 }
 .Superintelligence-title {
-    position: relative;
-    font-size: 23px;
-    top: 29px;
-    left: 7px;
-    background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
-    background-size: 190% 200%;
-    background-position: 100% 100%;    
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-top: 16px;
-    padding-bottom: 12px;
+  position: relative;
+  font-size: 23px;
+  top: 29px;
+  left: 7px;
+  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
+  background-size: 190% 200%;
+  background-position: 100% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 16px;
+  padding-bottom: 12px;
 
-    font-family: "Rubik";
-    font-weight: 500;
+  font-family: "Rubik";
+  font-weight: 500;
 }
 .Superintelligence-subtitle {
-    position: relative;
-    font-family: "Roboto";
-    top: 0px;
-    left: 8px;
-    font-size: 16px;
-    background: radial-gradient(rgb(17, 2, 17), rgb(98, 8, 125));
-    background-size: 190% 200%;
-    background-position: 100% 100%;    
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  position: relative;
+  font-family: "Roboto";
+  top: 0px;
+  left: 8px;
+  font-size: 16px;
+  background: radial-gradient(rgb(17, 2, 17), rgb(98, 8, 125));
+  background-size: 190% 200%;
+  background-position: 100% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .Superintelligence-elon-quote {
-    text-decoration: none;
-    font-family: "Roboto";
-    font-style: italic;
-    position: relative;
-    font-size: 14px;
-    margin-top: 19px;
-    left: 0px;
-    top: -45px;
-    text-align: center;
-    color: #000000;
+  text-decoration: none;
+  font-family: "Roboto";
+  font-style: italic;
+  position: relative;
+  font-size: 14px;
+  margin-top: 19px;
+  left: 0px;
+  top: -45px;
+  text-align: center;
+  color: #000000;
 }
 .Superintelligence-elon-quote:hover {
-    text-decoration: none;
-    font-family: "Roboto";
-    font-style: italic;
-    position: relative;
-    font-size: 14px;
-    margin-top: 19px;
-    left: 0px;
-    top: -45px;
-    text-align: center;
-    color: #6e076e;
-    font-weight: 420;
+  text-decoration: none;
+  font-family: "Roboto";
+  font-style: italic;
+  position: relative;
+  font-size: 14px;
+  margin-top: 19px;
+  left: 0px;
+  top: -45px;
+  text-align: center;
+  color: #6e076e;
+  font-weight: 420;
 }
 .Superintelligence-elon-quote:active {
-    text-decoration: none;
-    font-family: "Roboto";
-    font-style: italic;
-    position: relative;
-    font-size: 14px;
-    margin-top: 19px;
-    left: 0px;
-    top: -45px;
-    text-align: center;
-    color: #000000;
+  text-decoration: none;
+  font-family: "Roboto";
+  font-style: italic;
+  position: relative;
+  font-size: 14px;
+  margin-top: 19px;
+  left: 0px;
+  top: -45px;
+  text-align: center;
+  color: #000000;
 }
 .amazon-book-link-Superintelligence {
-    background-color: #698826;
-    width: 200px;
-    height: 40px;
-    border-radius: 10px;
-    position: absolute;
-    bottom: 3%;
-    left: 50px;
-    background-image: url('/images/aesthetic-backround-view-amazon-book-button.jpg');
-    transition-duration: 0.3s;
+  background-color: #698826;
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 3%;
+  left: 50px;
+  background-image: url("/images/aesthetic-backround-view-amazon-book-button.jpg");
+  transition-duration: 0.3s;
 }
 .amazon-book-link-Superintelligence:hover {
-    background-image: url('/images/aesthetic-backround-view-amazon-book-button-hover.jpg');
-    transition-duration: 0.3s;
-    
+  background-image: url("/images/aesthetic-backround-view-amazon-book-button-hover.jpg");
+  transition-duration: 0.3s;
 }
 .Superintelligence-amazon {
-    text-decoration: none;
-    font-family: "Roboto";
-    font-weight: 500;
-    position: absolute;
-    top: -11%;
-    left: 20%;
-    color: aliceblue;
+  text-decoration: none;
+  font-family: "Roboto";
+  font-weight: 500;
+  position: absolute;
+  top: -11%;
+  left: 20%;
+  color: aliceblue;
 }
 
-.carl-von-clausewitz-author, .carl-von-clausewitz-author-link {
-    text-decoration: none;
-    font-family: "Roboto";
-    font-weight: 400;
-    position: relative;
-    top: 30px;
-    left: 20px;
-    color: rgb(117, 32, 132);
+.carl-von-clausewitz-author,
+.carl-von-clausewitz-author-link {
+  text-decoration: none;
+  font-family: "Roboto";
+  font-weight: 400;
+  position: relative;
+  top: 30px;
+  left: 20px;
+  color: rgb(117, 32, 132);
 }
 
 .carl-von-clausewitz-author-div-circle {
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-    width: 21px;
-    height: 24px;
-    border: 2px solid rgb(117, 32, 132);
-    position: relative;
-    left: -10px;
-    top: -8px;
-    block-size: 20px;
-    transition-duration: 0.3s;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  width: 21px;
+  height: 24px;
+  border: 2px solid rgb(117, 32, 132);
+  position: relative;
+  left: -10px;
+  top: -8px;
+  block-size: 20px;
+  transition-duration: 0.3s;
 }
 .carl-von-clausewitz-author-div-circle:hover {
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    width: 21px;
-    height: 24px;
-    position: relative;
-    left: -10px;
-    top: -8px;
-    block-size: 20px;
-    border: 2px solid rgb(117, 32, 132);
-    transition-duration: 0.3s;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 21px;
+  height: 24px;
+  position: relative;
+  left: -10px;
+  top: -8px;
+  block-size: 20px;
+  border: 2px solid rgb(117, 32, 132);
+  transition-duration: 0.3s;
 }
 #author-OnWar {
-    position: relative;
-    top: -1px;
-    left: -.2px;
-    font-size: 22px;
-    color: rgb(117, 32, 132);
+  position: relative;
+  top: -1px;
+  left: -0.2px;
+  font-size: 22px;
+  color: rgb(117, 32, 132);
 }
 #author-OnWar:hover {
-    position: relative;
-    top: -1px;
-    left: -.2px;
-    font-size: 22px;
-    color: rgb(117, 32, 132);
+  position: relative;
+  top: -1px;
+  left: -0.2px;
+  font-size: 22px;
+  color: rgb(117, 32, 132);
 }
-.carl-von-clausewitz-author, .carl-von-clausewitz-author-link {
-    text-decoration: none;
-    transition-duration: 0.2s;
+.carl-von-clausewitz-author,
+.carl-von-clausewitz-author-link {
+  text-decoration: none;
+  transition-duration: 0.2s;
 }
-.carl-von-clausewitz-author:hover, .carl-von-clausewitz-author-link:hover {
-    font-weight: 800;
-    transition-duration: 0.2s;
+.carl-von-clausewitz-author:hover,
+.carl-von-clausewitz-author-link:hover {
+  font-weight: 800;
+  transition-duration: 0.2s;
 }
 
-.nick-bostrom-author-link, .nick-bostrom-author {
-    text-decoration: none;
-    font-family: "Roboto";
-    position: relative;
-    top: -1px;
-    left: 20px;
-    transition-duration: 0.2s;
-    color: rgb(117, 32, 132);
+.nick-bostrom-author-link,
+.nick-bostrom-author {
+  text-decoration: none;
+  font-family: "Roboto";
+  position: relative;
+  top: -1px;
+  left: 20px;
+  transition-duration: 0.2s;
+  color: rgb(117, 32, 132);
 }
 .nick-bostrom-author:hover {
-    font-weight: 900;
-    transition-duration: 0.2s;
+  font-weight: 900;
+  transition-duration: 0.2s;
 }
 .nick-bostrom-author-div-circle {
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-    width: 21px;
-    height: 24px;
-    border: 2px solid rgb(117, 32, 132);
-    position: relative;
-    left: -10px;
-    top: -38px;
-    block-size: 20px;
-    transition-duration: 0.2s;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  width: 21px;
+  height: 24px;
+  border: 2px solid rgb(117, 32, 132);
+  position: relative;
+  left: -10px;
+  top: -38px;
+  block-size: 20px;
+  transition-duration: 0.2s;
 }
 
 .nick-bostrom-author-div-circle:hover {
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    width: 21px;
-    height: 24px;
-    border: 2px solid rgb(117, 32, 132);
-    position: relative;
-    left: -10px;
-    top: -38px;
-    block-size: 20px;
-    transition-duration: 0.2s;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 21px;
+  height: 24px;
+  border: 2px solid rgb(117, 32, 132);
+  position: relative;
+  left: -10px;
+  top: -38px;
+  block-size: 20px;
+  transition-duration: 0.2s;
 }
 #author-Superintelligence {
-    position: relative;
-    top: -1px;
-    left: -.2px;
-    font-size: 22px;
-    color: rgb(117, 32, 132);
+  position: relative;
+  top: -1px;
+  left: -0.2px;
+  font-size: 22px;
+  color: rgb(117, 32, 132);
 }
 #author-Superintelligence:hover {
-    position: relative;
-    top: -1px;
-    left: -.2px;
-    font-size: 22px;
-    color: rgb(117, 32, 132);
+  position: relative;
+  top: -1px;
+  left: -0.2px;
+  font-size: 22px;
+  color: rgb(117, 32, 132);
 }
 .guess-elon-money {
-    position: relative;
-    top: -20px;
-    margin-left: 30%;
-    font-family: "Roboto";
-    font-weight: 800;
-
+  position: relative;
+  top: 90px;
+  margin-left: 30%;
+  font-family: "Roboto";
+  font-weight: 800;
 }
 
 .true-false-buttons-guess-elon-money-div {
-    background-color: #dadada;
-    width: 240px;
-    height: 50px;
-    border-radius: 10px;
-    box-shadow: inset;
-    position: relative;
-    top: 10px;
-    margin-left: 20%;
+  background-color: #dadada;
+  width: 240px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: inset;
+  position: relative;
+  top: 120px;
+  margin-left: 20%;
+  z-index: 4;
 }
 .True-button-guess-elon-money {
-    background-color: rgb(165, 50, 169);
-    font-family: "Roboto";
-    color: #ffffff;
-    border: 2px solid #6b1a9e;
-    border-radius: 10px;
-    width: 100px;
-    height: 30px;
-    font-size: 15px;
-    position: relative;
-    left: 16px;
-    top: 10px;
-    transition-duration: 0.3s;
+  background-color: rgb(165, 50, 169);
+  font-family: "Roboto";
+  color: #ffffff;
+  border: 2px solid #6b1a9e;
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  position: relative;
+  left: 16px;
+  top: 10px;
+  transition-duration: 0.3s;
 }
 .True-button-guess-elon-money:hover {
-    background-color: rgb(187, 117, 189);
-    font-family: "Roboto";
-    color: #ffffff;
-    border: 2px solid #9427d7;
-    border-radius: 10px;
-    width: 100px;
-    height: 30px;
-    font-size: 15px;
-    position: relative;
-    left: 16px;
-    top: 10px;
-    transition-duration: 0.9s;
+  background-color: rgb(187, 117, 189);
+  font-family: "Roboto";
+  color: #ffffff;
+  border: 2px solid #9427d7;
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  position: relative;
+  left: 16px;
+  top: 10px;
+  transition-duration: 0.9s;
 }
 .True-button-guess-elon-money:active {
-    background-color: rgb(30, 255, 0);
-    transition-duration: 0.9s;
-    font-family: "Roboto";
-    color: #ffffff;
-    border: 2px solid #b26ad9;
-    border-radius: 10px;
-    width: 100px;
-    height: 30px;
-    font-size: 15px;
-    position: relative;
-    left: 16px;
-    top: 10px;
+  background-color: rgb(30, 255, 0);
+  transition-duration: 0.9s;
+  font-family: "Roboto";
+  color: #ffffff;
+  border: 2px solid #b26ad9;
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  position: relative;
+  left: 16px;
+  top: 10px;
 }
 .False-button-guess-elon-money {
-    background-color: rgb(131, 11, 135);
-    font-family: "Roboto";
-    color: #ffffff;
-    border: 2px solid #6b1a9e;
-    border-radius: 10px;
-    width: 100px;
-    height: 30px;
-    font-size: 15px;
-    position: relative;
-    left: 20px;
-    top: 10px;
-    transition-duration: 0.3s;
+  background-color: rgb(131, 11, 135);
+  font-family: "Roboto";
+  color: #ffffff;
+  border: 2px solid #6b1a9e;
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  position: relative;
+  left: 20px;
+  top: 10px;
+  transition-duration: 0.3s;
 }
 .False-button-guess-elon-money:hover {
-    background-color: rgb(187, 117, 189);
-    font-family: "Roboto";
-    color: #ffffff;
-    border: 2px solid  #9427d7;
-    border-radius: 10px;
-    width: 100px;
-    height: 30px;
-    font-size: 15px;
-    position: relative;
-    left: 20px;
-    top: 10px;
-    transition-duration: 0.9s;
+  background-color: rgb(187, 117, 189);
+  font-family: "Roboto";
+  color: #ffffff;
+  border: 2px solid #9427d7;
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  position: relative;
+  left: 20px;
+  top: 10px;
+  transition-duration: 0.9s;
 }
 .False-button-guess-elon-money:active {
-    background-color: rgb(255, 0, 0);
-    transition-duration: 0.9s;
-    font-family: "Roboto";
-    color: #ffffff;
-    border: 2px solid  #b26ad9;
-    border-radius: 10px;
-    width: 100px;
-    height: 30px;
-    font-size: 15px;
-    position: relative;
-    left: 20px;
-    top: 10px;
+  background-color: rgb(255, 0, 0);
+  transition-duration: 0.9s;
+  font-family: "Roboto";
+  color: #ffffff;
+  border: 2px solid #b26ad9;
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  position: relative;
+  left: 20px;
+  top: 10px;
 }
 
 .elon-images-story {
-    background-color: transparent;
-    max-width: 400px;
-    max-height: 400px;
-    width: 320px;
-    height: 400px;
-    position: relative;
-    top: 300px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-    overflow: hidden;
+  background-color: transparent;
+  max-width: 400px;
+  max-height: 400px;
+  width: 320px;
+  height: 400px;
+  position: relative;
+  top: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .elon-images-story-p {
-    position: relative;
-    top: -180px;
-    text-align: center;
-    font-family: "Roboto";
-    font-size: 30px;
-    font-weight: 900;
-    background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
-    background-size: 190% 200%;
-    background-position: 100% 100%;    
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition-duration: 0.2s;
-    transition-timing-function: ease-in;
+  position: relative;
+  top: -180px;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 30px;
+  font-weight: 900;
+  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
+  background-size: 190% 200%;
+  background-position: 100% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
 }
 .elon-images-story-p:hover {
-    position: relative;
-    top: -180px;
-    text-align: center;
-    font-family: "Roboto";
-    font-size: 30px;
-    font-weight: 400;
-    background: radial-gradient(rgb(131, 25, 163), rgb(206, 75, 204));
-    background-size: 190% 200%;
-    background-position: 100% 100%;    
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-out;
+  position: relative;
+  top: -180px;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 30px;
+  font-weight: 400;
+  background: radial-gradient(rgb(131, 25, 163), rgb(206, 75, 204));
+  background-size: 190% 200%;
+  background-position: 100% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
 }
 .elon-images-story-subtitle {
-    position: relative;
-    top: 220px;
-    text-align: center;
-    font-family: "Roboto";
-    font-size: 14px;
+  position: relative;
+  top: 220px;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 14px;
 }
 .changeuser-button {
-    position: relative;
-    top: 350px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  position: relative;
+  top: 570px;
+  margin-left: 37%;
 }
 .username-greetings {
-    position: relative;
-    top: -2740px;
-    text-align: center;
-    font-family: "Roboto";
-    background: radial-gradient(rgb(131, 25, 163), rgb(206, 75, 204));
-    background-size: 190% 200%;
-    background-position: 100% 100%;    
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 500;
-    transition-duration: 0.1s;
+  position: relative;
+  top: -2740px;
+  text-align: center;
+  font-family: "Roboto";
+  background: radial-gradient(rgb(131, 25, 163), rgb(206, 75, 204));
+  background-size: 190% 200%;
+  background-position: 100% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+  transition-duration: 0.1s;
 }
 .username-greetings:hover {
-    position: relative;
-    top: -2740px;
-    text-align: center;
-    font-family: "Roboto";
-    background: radial-gradient(rgb(206, 75, 204), rgb(131, 25, 163));
-    background-size: 190% 200%;
-    background-position: 100% 100%;    
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 900;
-    transition-duration: 0.1s;
+  position: relative;
+  top: -2740px;
+  text-align: center;
+  font-family: "Roboto";
+  background: radial-gradient(rgb(206, 75, 204), rgb(131, 25, 163));
+  background-size: 190% 200%;
+  background-position: 100% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  transition-duration: 0.1s;
 }
