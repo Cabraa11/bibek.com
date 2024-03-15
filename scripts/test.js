@@ -344,17 +344,9 @@ overallButton.addEventListener("click", function () {
     clickOnImageMessage.style.color = "white";
     userLoginDiv.style.backgroundColor = "#423f3f";
     userLoginQuestion.style.color = "white";
-    nerdyLogo.style = "transition: opacity 0.1s; opacity: 0";
-    setTimeout(() => {
-      nerdyLogo.src = "images/nerdyLogoBlack.png";
-      nerdyLogo.style.opacity = "1";
-    }, 500);
+    nerdyLogo.src = "images/nerdyLogoBlack.png";
   } else {
-    nerdyLogo.style = "transition: opacity 0.1s; opacity: 0";
-    setTimeout(() => {
-      nerdyLogo.src = "images/nerdyLogoWhite.png";
-      nerdyLogo.style.opacity = "1";
-    }, 500);
+    nerdyLogo.src = "images/nerdyLogoWhite.png";
     circleButton.style.left = "4px";
     htmlBody.style.backgroundColor = "transparent";
     headerBorder.style.borderBottom = "1px solid black";
