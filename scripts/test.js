@@ -344,7 +344,17 @@ overallButton.addEventListener("click", function () {
     clickOnImageMessage.style.color = "white";
     userLoginDiv.style.backgroundColor = "#423f3f";
     userLoginQuestion.style.color = "white";
+    nerdyLogo.style.cssText = "transition: opacity 0.1s; opacity: 0;";
+    setTimeout(() => {
+      nerdyLogo.src = "images/nerdyBlack.png";
+      nerdyLogo.style.opacity = "1";
+    }, 500);
   } else {
+    nerdyLogo.style.cssText = "transition: opacity 0.1s; opacity: 0;";
+    setTimeout(() => {
+      nerdyLogo.src = "images/nerdy.png";
+      nerdyLogo.style.opacity = "1";
+    }, 500);
     circleButton.style.left = "4px";
     htmlBody.style.backgroundColor = "transparent";
     headerBorder.style.borderBottom = "1px solid black";
