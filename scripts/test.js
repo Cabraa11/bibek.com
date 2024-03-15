@@ -344,9 +344,7 @@ overallButton.addEventListener("click", function () {
     clickOnImageMessage.style.color = "white";
     userLoginDiv.style.backgroundColor = "#423f3f";
     userLoginQuestion.style.color = "white";
-    nerdyLogo.src = "images/nerdyLogoBlack.png";
   } else {
-    nerdyLogo.src = "images/nerdyLogoWhite.png";
     circleButton.style.left = "4px";
     htmlBody.style.backgroundColor = "transparent";
     headerBorder.style.borderBottom = "1px solid black";
