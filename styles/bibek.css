@@ -532,20 +532,12 @@ html {
 }
 .most-recommended-books-img {
   position: absolute;
-  block-size: 50px;
+  block-size: 86%;
   top: 13.4%;
   left: 5%;
-  width: 140px;
-  height: 87px;
   transition-duration: 0.5s;
 }
-.sex {
-  width: 140px;
-  height: 87px;
-  background-color: #00b132;
-  position: absolute;
-  top: 13.4%;
-}
+
 .author-info-life30-div-circle {
   background-color: rgb(254, 0, 0);
   border: 2px solid rgb(255, 255, 255);
