@@ -383,7 +383,7 @@ html {
 .welcomeUserMessage {
   font-size: 40px;
   position: relative;
-  top: 75px;
+  top: 136%;
   text-align: center;
   background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
   background-size: 190% 200%;
@@ -531,7 +531,7 @@ html {
   top: 100px;
 }
 .most-recommended-books-img {
-position: absolute;
+  position: absolute;
   block-size: 86%;
   top: 11.4%;
   left: 5%;
