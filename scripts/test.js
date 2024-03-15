@@ -344,13 +344,13 @@ overallButton.addEventListener("click", function () {
     clickOnImageMessage.style.color = "white";
     userLoginDiv.style.backgroundColor = "#423f3f";
     userLoginQuestion.style.color = "white";
-    nerdyLogo.style.cssText = "transition: opacity 0.1s; opacity: 0";
+    nerdyLogo.style = "transition: opacity 0.1s; opacity: 0";
     setTimeout(() => {
       nerdyLogo.src = "images/nerdyLogoBlack.png";
       nerdyLogo.style.opacity = "1";
     }, 500);
   } else {
-    nerdyLogo.style.cssText = "transition: opacity 0.1s; opacity: 0";
+    nerdyLogo.style = "transition: opacity 0.1s; opacity: 0";
     setTimeout(() => {
       nerdyLogo.src = "images/nerdyLogoWhite.png";
       nerdyLogo.style.opacity = "1";
