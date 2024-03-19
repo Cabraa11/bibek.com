@@ -141,7 +141,7 @@ questionAnswerYes.addEventListener("click", closeButtonYes);
 
 // If the user completes login form, store the info on an object
 
-const usersData = {};
+const usersData = [];
 
 const nameInput = document.querySelector(".inputName");
 const emailInput = document.querySelector(".inputEmail");
@@ -181,15 +181,22 @@ const acceptModal = function () {
     modalLogin.classList.add("hidden");
     overlay.classList.add("hidden");
 
-    usersData[nameValue] = {
-      name: nameValue,
-      email: emailValue,
+    const userDataa = function (userName, userEmail) {
+      const userDataObj = {
+        userName,
+        userEmail,
+      };
+      usersData.push(userDataObj);
+      console.log(usersData);
+
+      welcomeUserMessage.textContent = `Welcome ${userName}`;
     };
 
-    const lastUserKey =
-      Object.keys(usersData)[Object.keys(usersData).length - 1];
+    userDataa(nameValue, emailValue);
 
-    welcomeUserMessage.textContent = `Welcome ${usersData[lastUserKey].name}`;
+    welcomeUserMessage.textContent = `Welcome ${
+      usersData[usersData.length - 1].userName
+    }`;
 
     console.log(usersData);
     return;
