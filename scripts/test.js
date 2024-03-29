@@ -1,1459 +1,445 @@
-html {
-  width: 430px;
-  height: 3320px;
-  transition-duration: 0.5s;
-}
-.DarkWhiteModeDiv {
-  background-color: #00b132;
-  width: 75px;
-  height: 35px;
-  border-radius: 20px;
-  position: absolute;
-  left: 290px;
-  top: 40%;
-}
-.sexyCircle {
-  background-color: #ffffff;
-  width: 30px;
-  height: 29px;
-  border-radius: 60px;
-  position: relative;
-  /* Active = 41px*/
-  left: 4px;
-  top: 8%;
-  transition-duration: 0.5s;
-}
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3320px;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px);
-  z-index: 5;
-}
-.hidden {
-  display: none;
-}
-.user-login {
-  background-color: rgb(202, 191, 191);
-  width: 200px;
-  height: 60px;
-  position: absolute;
-  top: 120px;
-  left: 50%;
-  transform: translate(-50%);
-  border-radius: 5px;
-}
-.user-login {
-  transition-duration: 0.5s;
+// Function for how the networth text is displayed
+function formatNumberToCurrency(num) {
+  const suffixes = ["", "K", "M", "B", "T", "N"];
+  const magnitude = Math.floor(Math.log(Math.abs(num)) / Math.log(1000));
+  const normalizedNum = num / Math.pow(1000, magnitude);
+  const prefix = num < 0 ? "-" : "";
+  const num_0 = num === 0 ? 0 : prefix;
+
+  return num === 0
+    ? "$0"
+    : `$${prefix}${num_0}${normalizedNum.toFixed(0)}${suffixes[magnitude]}`;
 }
 
-.user-login-question-yes-no-buttons-div {
-  background-color: transparent;
-  text-align: center;
-  position: relative;
-  top: -10%;
-}
-.user-login-question {
-  font-size: 15px;
-  font-family: "Arial";
-  text-align: center;
-  transition-duration: 0.5s;
-}
+const randomValue = Math.random() * (200000000000 - 0 + 1) + 0;
+const formattedValue = formatNumberToCurrency(randomValue);
 
-.user-login-question-answer-no {
-  background-color: #a91313;
-  color: #dadada;
-  border: 1px solid black;
-  position: relative;
-  font-size: 13px;
-  border-radius: 5px;
-  position: relative;
-  top: 0px;
-  left: 1px;
-}
-.user-login-question-answer-no:hover {
-  background-color: #df2727;
-  color: #dadada;
-  border: 1px solid black;
-  position: relative;
-  font-size: 13px;
-  border-radius: 5px;
-}
-.userNoQuestionAnswerBig {
-  width: 198px;
-  height: 58px;
+// When someone enters the website, display elon's net worth guessing number randomly using the previous function
 
-  background-color: #a91313;
-  border-radius: 5px;
-  text-align: center;
-  position: relative;
-  top: -50px;
-  border: 1px solid black;
-  transition-duration: 1s;
-}
-.questionBigNoText {
-  position: relative;
-  top: 18.9px;
-  left: 20px;
-  font-family: "Arial";
-  font-size: 13px;
-  color: #ffffff;
-}
-.user-login-question-answer-yes {
-  background-color: #1e7d0b;
-  color: #dadada;
-  border: 1px solid black;
-  font-size: 13px;
-  border-radius: 5px;
-  position: relative;
-  left: -2.5px;
-}
-.user-login-question-answer-yes:hover {
-  background-color: #359223;
-  color: #dadada;
-  border: 1px solid black;
-  font-size: 13px;
-  border-radius: 5px;
-}
-.userYesQuestionAnswerBig {
-  width: 198px;
-  height: 58px;
-  background-color: #1e7d0b;
-  border-radius: 5px;
-  position: relative;
-  top: -50px;
-  border: 1px solid black;
-}
-.questionBigYesText {
-  position: relative;
-  top: 19px;
-  left: 70px;
-  font-family: "Arial";
-  font-size: 13px;
-  color: #ffffff;
-  width: fit-content;
-  height: fit-content;
-}
-/*Original ModalLogin top = 230px*/
-.answerYesModalLogin {
-  background-color: #ffffff;
-  width: 300px;
-  height: 310px;
-  position: absolute;
-  top: 230px;
-  left: 15%;
-  z-index: 10;
-  border-radius: 10px;
-  border: 2px solid rgb(220, 220, 220);
-}
-.modalTitle {
-  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
-  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
-  background-size: 190% 200%;
-  background-position: 100% 100%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in;
-  position: absolute;
-  top: -23px;
-  left: 8%;
-  font-family: "Arial";
-  font-size: 29px;
-  width: 257px;
-}
-.modalHeader {
-  height: 60px;
-  position: relative;
-  top: 35px;
-  transition-duration: 0.5s;
-}
-.inputName {
-  border-color: #8613ce;
-  border-radius: 10px;
-  text-align: center;
-  position: absolute;
-  top: 44px;
-  width: 200px;
-  height: 30px;
-}
-.inputName::placeholder {
-  border-color: #a48da5;
-  font-family: "Arial";
-  font-size: 24px;
-}
-.inputEmail::placeholder {
-  color: #a48da5;
-  font-family: "Arial";
-  font-size: 23px;
-}
-.inputName:valid {
-  border-color: #00b132;
-  font-family: "Arial";
-}
-.inputName:invalid {
-  border-color: #b12300;
-  font-family: "Arial";
-}
-.inputEmail {
-  border-color: #8613ce;
-  border-radius: 10px;
-  text-align: center;
-  position: absolute;
-  top: 90px;
-  width: 200px;
-  height: 29px;
-}
-.inputEmail::placeholder {
-  color: #a48da5;
-  font-family: "Arial";
-}
-.inputEmail:valid {
-  border-color: #00b132;
-  font-family: "Arial";
-}
-.inputEmail:invalid {
-  border-color: #b12300;
-  font-family: "Arial";
-}
-.inputs {
-  position: relative;
-  left: 15%;
-  top: 45px;
-}
-.inputsOkButton {
-  width: 200px;
-  height: 39px;
-  border-radius: 10px;
-  background-image: url(/images/aesthetic-backround-view-amazon-book-button.jpg);
-  color: white;
-  font-weight: bold;
-  border: transparent;
-  transition-duration: 0.5s;
-  position: absolute;
-  top: 250px;
-  left: 16.5%;
-}
-.cancelModalButton {
-  border: 1px solid rgb(194, 194, 194);
-  border-radius: 3px;
-  border-top-right-radius: 10px;
-  position: relative;
-  width: 30px;
-  height: 20px;
-  top: -76px;
-  left: 272px;
-}
-.cancelModalButton2 {
-  border: 1px solid rgb(194, 194, 194);
-  border-radius: 3px;
-  border-top-right-radius: 10px;
-  position: relative;
-  width: 30px;
-  height: 20px;
-  top: -120px;
-  left: 272px;
-}
-.cancelModalButton2:hover {
-  border: 1px solid rgb(255, 0, 0);
-  border-radius: 3px;
-  border-top-right-radius: 10px;
-  position: relative;
-  width: 30px;
-  height: 20px;
-  top: -120px;
-  left: 272px;
-  color: red;
-  font-weight: bold;
-  transition-duration: 0.1s;
-}
-.cancelModalButton2:active {
-  border: 1px solid rgb(104, 0, 0);
-  border-radius: 3px;
-  border-top-right-radius: 10px;
-  position: relative;
-  width: 30px;
-  height: 20px;
-  top: -120px;
-  left: 272px;
-  color: white;
-  background-color: red;
-}
-.cancelModalButton3 {
-  border: 1px solid rgb(194, 194, 194);
-  border-radius: 3px;
-  border-top-right-radius: 10px;
-  position: relative;
-  width: 30px;
-  height: 20px;
-  top: -76px;
-  left: 272px;
-}
-.cancelModalButton3 {
-  border: 1px solid rgb(194, 194, 194);
-  border-radius: 3px;
-  border-top-right-radius: 10px;
-  position: relative;
-  width: 30px;
-  height: 20px;
-  top: -120px;
-  left: 272px;
-}
-.cancelModalButton3:hover {
-  border: 1px solid rgb(255, 0, 0);
-  border-radius: 3px;
-  border-top-right-radius: 10px;
-  position: relative;
-  width: 30px;
-  height: 20px;
-  top: -120px;
-  left: 272px;
-  color: red;
-  font-weight: bold;
-  transition-duration: 0.1s;
-}
-.cancelModalButton3:active {
-  border: 1px solid rgb(104, 0, 0);
-  border-radius: 3px;
-  border-top-right-radius: 10px;
-  position: relative;
-  width: 30px;
-  height: 20px;
-  top: -120px;
-  left: 272px;
-  color: white;
-  background-color: red;
-}
-.weDontKnowModalContent {
-  position: relative;
-  top: 20px;
-}
-.cancelModalButton:hover {
-  border: 1px solid rgb(255, 0, 0);
-  border-radius: 3px;
-  border-top-right-radius: 10px;
-  position: relative;
-  width: 30px;
-  height: 20px;
-  top: -76px;
-  left: 272px;
-  color: red;
-  font-weight: bold;
-  transition-duration: 0.1s;
-}
-.cancelModalButton:active {
-  border: 1px solid rgb(104, 0, 0);
-  border-radius: 3px;
-  border-top-right-radius: 10px;
-  position: relative;
-  width: 30px;
-  height: 20px;
-  top: -76px;
-  left: 272px;
-  color: white;
-  background-color: red;
-}
-.emptyValuesMessage {
-  font-size: 12.5px;
-  color: rgb(140, 3, 164);
-  font-family: "Arial";
-  position: absolute;
-  top: 100px;
-  left: 27%;
-}
-.emptyValuesMessage2 {
-  font-size: 12.5px;
-  color: rgb(140, 3, 164);
-  font-family: "Arial";
-  position: absolute;
-  top: 118px;
-  left: 30%;
-}
-.emailNotValidMessage {
-  font-size: 12.5px;
-  color: rgb(140, 3, 164);
-  font-family: "Arial";
-  position: absolute;
-  top: 135px;
-  left: 34%;
-}
-.welcomeUserMessage {
-  font-size: 40px;
-  position: relative;
-  top: 136%;
-  text-align: center;
-  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
-  background-size: 190% 200%;
-  background-position: 100% 100%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.inputsOkButton:hover {
-  width: 200px;
-  height: 39px;
-  border-radius: 10px;
-  background-image: url(/images/aesthetic-backround-view-amazon-book-button-hover.jpg);
-  color: white;
-  font-weight: bold;
-  border: transparent;
-  position: absolute;
-  top: 250px;
-  left: 16%;
-}
-.justKidding {
-  font-family: "Arial";
-  position: relative;
-  top: 29px;
-  left: 7%;
-  font-size: 14px;
-  width: 260px;
-  text-align: center;
-  color: #000000;
-}
-.weDontKnowModal {
-  background-color: #d6d6d6;
-  border: 2px solid rgb(158, 158, 158);
-  width: 300px;
-  height: 160px;
-  border-radius: 10px;
-  z-index: 10;
-  position: relative;
-  top: -200px;
-  left: 13.5%;
-}
-.dontKnowTitle {
-  text-align: center;
-  font-size: 20px;
-  font-family: "Arial";
-  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
-  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
-  background-size: 190% 200%;
-  background-position: 100% 100%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.dontKnowMessage {
-  font-family: "Arial";
-  text-align: center;
-}
-.dontKnowLink {
-  background-color: #00b132;
-  width: 130px;
-  height: 30px;
-  border-radius: 20px;
-  background-image: url(/images/aesthetic-backround-view-amazon-book-button.jpg);
-  transition-duration: 0.1s;
-  border: 1px solid rgb(121, 33, 131);
-  display: block;
-  margin: auto;
-}
-.dontKnowLink:hover {
-  background-color: #00b132;
-  width: 130px;
-  height: 30px;
-  border-radius: 20px;
-  background-image: url(/images/aesthetic-backround-view-amazon-book-button-hover.jpg);
-  transition-duration: 0.1s;
-  border: 1px solid rgb(195, 39, 213);
-}
-.netWorthLink {
-  text-decoration: none;
-}
-.liveNetWorthText {
-  font-family: "Arial";
-  text-align: center;
-  position: relative;
-  top: -8.5px;
-  color: white;
-  font-weight: 500;
-}
-.title1 {
-  color: rgb(0, 0, 0);
-  font-size: 20px;
-  position: relative;
-  top: 160px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 330px;
-  font-family: "Roboto";
-  max-width: fit-content;
-  max-height: fit-content;
-}
-.title1 {
-  transition-duration: 0.5s;
-}
+document.ge;
+const additionResult = document.querySelector(".title1");
+additionResult.textContent = formattedValue;
 
-#menu-symbol {
-  position: relative;
-  left: 150px;
-  top: 23px;
-  font-size: 34px;
-}
-.header-div {
-  width: 430px;
-  height: 100px;
-  position: relative;
-  left: -8px;
-  top: -21px;
-  background-color: rgb(255, 255, 255) 222, 222, 222;
-  border-bottom: 1px solid black;
-  transition-duration: 0.5s;
-}
+// then, if the user clicks the true & false buttons, show their respective modals.
 
-.elon-101-recommended-books-div {
-  border: 1px solid transparent;
-  border-radius: 7px;
-  width: 200px;
-  height: 0px;
-  position: relative;
+// assigning variables to HTML elements
+const trueButton = document.querySelector(".True-button-guess-elon-money");
+const trueButtonModal = document.querySelector(".weDontKnowModal");
+const falseButton = document.querySelector(".False-button-guess-elon-money");
+const falseButtonModal = document.querySelector(".weDontKnowModal");
 
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+// Function for clicking true button
+const trueClickButton = function () {
+  trueButtonModal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
 
-.elon-101-recommended-books {
-  font-family: "Roboto";
-  position: relative;
-  top: -0.5px;
-  left: 11px;
-  width: fit-content;
-  font-size: 15px;
-  color: rgb(164, 20, 212);
-  text-decoration: underline;
-}
-.elon-book-recommendations-div {
-  position: relative;
-  top: 100px;
-}
-.most-recommended-books-img {
-  position: absolute;
-  block-size: 86%;
-  top: 11.4%;
-  left: 5%;
-}
+  cancelmodal2.addEventListener("click", function () {
+    trueButtonModal.classList.add("hidden");
+    overlay.classList.add("hidden");
+  });
+};
 
-.author-info-life30-div-circle {
-  background-color: rgb(254, 0, 0);
-  border: 2px solid rgb(255, 255, 255);
-  border-radius: 100px;
-  width: 25px;
-  height: 25px;
-  position: relative;
-  top: -1px;
-  left: 10px;
-}
-.author-info-life30-p {
-  font-family: "Roboto";
-  font-weight: 500;
-  width: 100px;
-  position: relative;
-  top: -41px;
-  left: 39px;
-}
-#author-info-life30 {
-  position: relative;
-  top: 0px;
-  left: 0.4px;
-}
+trueButton.addEventListener("click", trueClickButton);
 
-.musk-smoking {
-  border-radius: 19px;
-  block-size: 150px;
-  position: relative;
-  top: 90px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+// Function for clicking false button
+const falseClickButton = function () {
+  falseButtonModal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
 
-.elon-summary {
-  font-family: "Roboto";
-  font-weight: 400;
-  position: relative;
-  top: 60px;
-  left: 100px;
-  width: 50%;
-  text-align: center;
-}
-.elon-summary {
-  color: #000000;
-  transition-duration: 0.5s;
-}
-.elon-info {
-  position: relative;
-  top: 90px;
-}
-.elon-profile-more-info {
-  background-color: transparent;
-  width: 116px;
-  height: 25px;
-  position: relative;
-  top: 45px;
-  left: 145px;
-}
+  cancelmodal2.addEventListener("click", function () {
+    falseButtonModal.classList.add("hidden");
+    overlay.classList.add("hidden");
+  });
+};
 
-.more-info-elon-wiki {
-  text-decoration: none;
-  font-family: "Roboto";
-  font-weight: bold;
-  position: relative;
-  top: 3px;
-  left: 3px;
-  color: rgb(197, 13, 178);
-}
-.more-info-elon-wiki:hover {
-  text-decoration: none;
-  font-family: "Roboto";
-  font-weight: bold;
-  position: relative;
-  top: 3px;
-  left: 3px;
-  color: rgb(255, 6, 230);
-}
-.divider {
-  font-weight: bold;
-  position: relative;
-  width: fit-content;
-  top: -32px;
-  left: 75px;
-  font-size: 16px;
-}
-.divider {
-  transition-duration: 0.5s;
-}
-.x-logo-elon-profile {
-  border-radius: 140px;
-  block-size: 20px;
-  position: relative;
-  top: -66px;
-  left: 82px;
-  border: 1px solid transparent;
-}
-.x-logo-elon-profile:hover {
-  border-radius: 140px;
-  block-size: 20px;
-  position: relative;
-  top: -66px;
-  left: 82px;
-  border: 1px solid rgb(255, 0, 230);
-}
-.life30-div {
-  background-color: rgb(220, 220, 220);
-  position: relative;
-  top: 60px;
-  left: 0;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px;
-  height: 580px;
-  border-radius: 10px;
-  border: 1px solid rgb(93, 93, 93);
-  box-shadow: inset;
-}
-.life30-title-div {
-  position: relative;
-  top: -10px;
-}
-.life30-img {
-  border-radius: 30px;
-  block-size: 300px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  object-fit: contain;
-}
-.life30-title {
-  position: relative;
-  font-size: 23px;
-  top: 29px;
-  left: 7px;
-  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
-  background-size: 190% 200%;
-  background-position: 100% 100%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-top: 16px;
-  padding-bottom: 12px;
+falseButton.addEventListener("click", trueClickButton);
 
-  font-family: "Rubik";
-  font-weight: 500;
-}
-.life30-subtitle {
-  position: relative;
-  font-family: "Roboto";
-  top: 0px;
-  left: 8px;
-  font-size: 16px;
-  background: radial-gradient(rgb(255, 111, 255), rgb(38, 1, 50));
-  background-size: 190% 200%;
-  background-position: 100% 100%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.author-life30-div {
-  background-color: transparent;
-  width: 144px;
-  height: 33px;
-  position: relative;
-  top: -1px;
-  border-radius: 10px;
-  color: rgb(117, 32, 132);
-}
-.author-life30-div-circle {
-  background-color: rgb(255, 255, 255);
-  border-radius: 20px;
-  width: 21px;
-  height: 24px;
-  border: 2px solid rgb(117, 32, 132);
-  position: relative;
-  left: -6.5px;
-  top: -60px;
-  block-size: 20px;
-  transition-duration: 0.2s;
-}
-.author-life30-div-circle:hover {
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  width: 21px;
-  height: 24px;
-  position: relative;
-  left: -6.5px;
-  top: -60px;
-  block-size: 20px;
-  border: 2px solid rgb(117, 32, 132);
-  transition-duration: 0.2s;
-}
-.max-tegmark-author:hover {
-  font-weight: 900;
-  transition-duration: 0.2s;
-}
+// When the user clicks the image story of elon musk, show the next images on the array, and when the array gets to the last image, restart it again.
 
-#author-life30 {
-  position: relative;
-  top: -1px;
-  left: 0.3px;
-  font-size: 22px;
-  max-height: fit-content;
-  max-height: fit-content;
-}
-#author-life30:hover {
-  position: relative;
-  top: -1px;
-  left: 0.3px;
-  font-size: 22px;
-}
-.max-tegmark-author-link,
-.max-tegmark-author {
-  text-decoration: none;
-  font-family: "Roboto";
-  font-weight: 400;
-  position: relative;
-  top: 20px;
-  left: 14px;
-  width: 100px;
-  transition-duration: 0.2s;
-  color: rgb(117, 32, 132);
-}
-.max-tegmark-author {
-  position: relative;
-  top: -23px;
-  left: 24px;
-}
+////// Slider of Elon's Story with images
+const elonSlider = function () {
+  // HTML elements
+  const images = document.querySelectorAll(".img");
+  const btnLeft = document.querySelector(".btn__left");
+  const btnRight = document.querySelector(".btn__right");
+  // define current slide and max slide
+  let curSlide = 0;
+  const maxSlide = images.length;
 
-.life30-elon-quote {
-  font-family: "Roboto";
-  font-style: italic;
-  position: relative;
-  font-size: 14px;
-  margin-top: 19px;
-  left: 0px;
-  top: -50px;
-  text-align: center;
-  width: 300px;
-  color: black;
-}
-.amazon-book-link-life30 {
-  background-color: transparent;
-  width: 200px;
-  height: 40px;
-  border-radius: 10px;
-  position: absolute;
-  bottom: 3%;
-  left: 50px;
-  background-image: url(/images/aesthetic-backround-view-amazon-book-button.jpg);
-  transition-duration: 0.3s;
-}
-.jeff-bezos-page-link {
-  text-decoration: none;
-}
-.jeff-bezos-page-text {
-  position: relative;
-  top: 446px;
-  text-align: center;
-  text-decoration: none;
-  color: #6b1a9e;
-  font-family: "Roboto";
-}
-.jeff-bezos-page-text:hover {
-  position: relative;
-  top: 446px;
-  text-align: center;
-  text-decoration: none;
-  color: #31064c;
-  font-family: "Roboto";
-  font-weight: 400;
-}
-.amazon-book-link-life30:hover {
-  background-image: url(/images/aesthetic-backround-view-amazon-book-button-hover.jpg);
-  transition-duration: 0.3s;
-}
+  // Functions
+  const goToSlide = function (slide) {
+    images.forEach(
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    );
+  };
+  goToSlide(0);
 
-.life30-amazon {
-  text-decoration: none;
-  font-family: "Roboto";
-  font-weight: 500;
-  position: absolute;
-  top: -11%;
-  left: 20%;
-  color: aliceblue;
-}
+  const nextSlide = function () {
+    if (curSlide === maxSlide - 1) {
+      curSlide = 0;
+    } else {
+      curSlide++;
+    }
 
-/* A 30px difference between div books */
+    goToSlide(curSlide);
+  };
 
-.OnWar-div {
-  background-color: rgb(220, 220, 220);
-  position: relative;
-  top: 90px;
-  left: 0;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px;
-  height: 550px;
-  border-radius: 10px;
-  border: 1px solid rgb(93, 93, 93);
-  box-shadow: inset;
-}
-.OnWar-title-div {
-  position: relative;
-  top: -88px;
-}
-.OnWar-img {
-  border-radius: 30px;
-  block-size: 430px;
-  width: 210px;
-  height: 300px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-}
-.life30-img-div {
-  background-color: transparent;
-  width: 210px;
-  height: 300px;
-  border-radius: 10px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top: 20px;
-  overflow: hidden;
-}
-.OnWar-img-div {
-  background-color: transparent;
-  width: 210px;
-  height: 300px;
-  border-radius: 10px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top: 20px;
-  overflow: hidden;
-}
-.OnWar-title {
-  position: relative;
-  font-size: 23px;
-  top: -36px;
-  left: 7px;
-  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
-  background-size: 190% 200%;
-  background-position: 100% 100%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-top: 16px;
-  padding-bottom: 12px;
+  const prevSlide = function () {
+    if (curSlide === 0) {
+      curSlide = maxSlide - 1;
+    } else {
+      curSlide--;
+    }
+    goToSlide(curSlide);
+  };
 
-  font-family: "Rubik";
-  font-weight: 500;
-}
-.OnWar-subtitle {
-  position: relative;
-  font-family: "Roboto";
-  top: 13px;
-  left: 7px;
-  font-size: 16px;
-}
-.OnWar-elon-quote {
-  color: #000000;
-  font-family: "Roboto";
-  font-style: italic;
-  position: relative;
-  font-size: 14px;
-  margin-top: 19px;
-  left: 0px;
-  top: 19px;
-  text-align: center;
-  text-decoration: none;
-}
-.authorANDquote-div {
-  position: relative;
-  top: -12px;
-}
-.authorANDquote-OnWar-div {
-  position: relative;
-  top: -2px;
-}
-.authorANDquote-superintelligence-div {
-  position: relative;
-  top: -14px;
-}
-.OnWar-elon-quote:hover {
-  color: #6e076e;
-  font-family: "Roboto";
-  font-style: italic;
-  font-weight: 500;
-  position: relative;
-  font-size: 14px;
-  margin-top: 19px;
-  left: 0px;
-  top: 19px;
-  text-align: center;
-  text-decoration: none;
-}
-.amazon-book-link-OnWar {
-  background-color: #698826;
-  width: 200px;
-  height: 40px;
-  border-radius: 10px;
-  position: absolute;
-  bottom: 3%;
-  left: 50px;
-  background-image: url("/images/aesthetic-backround-view-amazon-book-button.jpg");
-  transition-duration: 0.3s;
-}
-.author-symbol {
-  size-adjust: 300px;
-}
+  // Events
+  btnRight.addEventListener("click", nextSlide);
+  btnLeft.addEventListener("click", prevSlide);
+};
+elonSlider();
+////////////////////////
+// If the user clicks "change user" button, make the login modal appear again.
+const changeUserButton = document.querySelector(".changeuser-button");
 
-.amazon-book-link-OnWar:hover {
-  background-image: url("/images/aesthetic-backround-view-amazon-book-button-hover.jpg");
-  transition-duration: 0.3s;
-}
-.OnWar-amazon {
-  text-decoration: none;
-  font-family: "Roboto";
-  font-weight: 500;
-  position: absolute;
-  top: -11%;
-  left: 20%;
-  color: aliceblue;
-}
+changeUserButton.addEventListener("click", function () {
+  modalLogin.style.top = "2600px";
+  modalLogin.classList.remove("hidden");
+  overlay.classList.remove("hidden");
 
-/* A 30px difference between div books */
+  // If the "welcome [user] header message appears, eliminate the login question"
 
-.Superintelligence-div {
-  background-color: rgb(220, 220, 220);
-  position: relative;
-  top: 120px;
-  left: 0;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px;
-  height: 550px;
-  border-radius: 10px;
-  border: 1px solid rgb(93, 93, 93);
-  box-shadow: inset;
-}
-.Superintelligence-title-div {
-  position: relative;
-  top: -10px;
-}
-.Superintelligence-img {
-  border-radius: 30px;
-  block-size: 430px;
-  width: 210px;
-  height: 300px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-}
-.Superintelligence-img-div {
-  background-color: transparent;
-  width: 210px;
-  height: 300px;
-  border-radius: 10px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top: 20px;
-  overflow: hidden;
-}
-.Superintelligence-img-div {
-  background-color: transparent;
-  width: 210px;
-  height: 300px;
-  border-radius: 10px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top: 20px;
-  overflow: hidden;
-}
-.Superintelligence-title {
-  position: relative;
-  font-size: 23px;
-  top: 29px;
-  left: 7px;
-  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
-  background-size: 190% 200%;
-  background-position: 100% 100%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-top: 16px;
-  padding-bottom: 12px;
+  if (welcomeUserMessage.textContent !== "") {
+    userLoginDiv.remove("hidden");
+  }
+});
+// changeUserButton.textContent = setUserName().value;
 
-  font-family: "Rubik";
-  font-weight: 500;
-}
-.Superintelligence-subtitle {
-  position: relative;
-  font-family: "Roboto";
-  top: 0px;
-  left: 8px;
-  font-size: 16px;
-  background: radial-gradient(rgb(17, 2, 17), rgb(98, 8, 125));
-  background-size: 190% 200%;
-  background-position: 100% 100%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.Superintelligence-elon-quote {
-  text-decoration: none;
-  font-family: "Roboto";
-  font-style: italic;
-  position: relative;
-  font-size: 14px;
-  margin-top: 19px;
-  left: 0px;
-  top: 17px;
-  text-align: center;
-  color: #000000;
-}
-.Superintelligence-elon-quote:hover {
-  text-decoration: none;
-  font-family: "Roboto";
-  font-style: italic;
-  position: relative;
-  font-size: 14px;
-  margin-top: 19px;
-  left: 0px;
-  top: 17px;
-  text-align: center;
-  color: #6e076e;
-  font-weight: 420;
-}
-.Superintelligence-elon-quote:active {
-  text-decoration: none;
-  font-family: "Roboto";
-  font-style: italic;
-  position: relative;
-  font-size: 14px;
-  margin-top: 19px;
-  left: 0px;
-  top: 17px;
-  text-align: center;
-  color: #000000;
-}
-.amazon-book-link-Superintelligence {
-  background-color: #698826;
-  width: 200px;
-  height: 40px;
-  border-radius: 10px;
-  position: absolute;
-  bottom: 3%;
-  left: 50px;
-  background-image: url("/images/aesthetic-backround-view-amazon-book-button.jpg");
-  transition-duration: 0.3s;
-}
-.amazon-book-link-Superintelligence:hover {
-  background-image: url("/images/aesthetic-backround-view-amazon-book-button-hover.jpg");
-  transition-duration: 0.3s;
-}
-.Superintelligence-amazon {
-  text-decoration: none;
-  font-family: "Roboto";
-  font-weight: 500;
-  position: absolute;
-  top: -11%;
-  left: 20%;
-  color: aliceblue;
-}
+// When user clicks the no button for the "Do you want us to say hi?" question
+const questionAnswerNo = document.querySelector(
+  ".user-login-question-answer-no"
+);
+const questionAnswerYes = document.querySelector(
+  ".user-login-question-answer-yes"
+);
+const userLoginDiv = document.querySelector(".user-login");
+const userLoginQuestion = document.querySelector(".user-login-question");
+const userAnswerNoButton = document.querySelector(".userNoQuestionAnswerBig");
+const userAnswerYesButton = document.querySelector(".userYesQuestionAnswerBig");
+const overlay = document.querySelector(".overlay");
+const modalLogin = document.querySelector(".answerYesModalLogin");
 
-.carl-von-clausewitz-author,
-.carl-von-clausewitz-author-link {
-  text-decoration: none;
-  font-family: "Roboto";
-  font-weight: 400;
-  position: relative;
-  top: 30px;
-  left: 20px;
-  color: rgb(117, 32, 132);
-  transition-duration: 0.5s;
-}
+// Function for the moment the user clicks the no button on the user login question
+const closeButtonNo = function () {
+  userAnswerNoButton.classList.remove("hidden");
+  setTimeout(function () {
+    userLoginDiv.classList.add("hidden");
+  }, 700 /* In miliseconds */);
+};
 
-.carl-von-clausewitz-author-div-circle {
-  background-color: rgb(255, 255, 255);
-  border-radius: 20px;
-  width: 21px;
-  height: 24px;
-  border: 2px solid rgb(117, 32, 132);
-  position: relative;
-  left: -10px;
-  top: -8px;
-  block-size: 20px;
-  transition-duration: 0.3s;
-}
-.carl-von-clausewitz-author-div-circle:hover {
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  width: 21px;
-  height: 24px;
-  position: relative;
-  left: -10px;
-  top: -8px;
-  block-size: 20px;
-  border: 2px solid rgb(117, 32, 132);
-  transition-duration: 0.3s;
-}
-#author-OnWar {
-  position: relative;
-  top: -1px;
-  left: -0.2px;
-  font-size: 22px;
-  color: rgb(117, 32, 132);
-}
-#author-OnWar:hover {
-  position: relative;
-  top: -1px;
-  left: -0.2px;
-  font-size: 22px;
-  color: rgb(117, 32, 132);
-}
-.carl-von-clausewitz-author,
-.carl-von-clausewitz-author-link {
-  text-decoration: none;
-  transition-duration: 0.2s;
-}
-.carl-von-clausewitz-author:hover,
-.carl-von-clausewitz-author-link:hover {
-  font-weight: 800;
-  transition-duration: 0.2s;
-}
+questionAnswerNo.addEventListener("click", closeButtonNo);
 
-.nick-bostrom-author-link,
-.nick-bostrom-author {
-  text-decoration: none;
-  font-family: "Roboto";
-  position: relative;
-  top: 0px;
-  left: 20px;
-  transition-duration: 0.2s;
-  color: rgb(117, 32, 132);
-}
-.nick-bostrom-author:hover {
-  font-weight: 900;
-  transition-duration: 0.2s;
-}
-.nick-bostrom-author-div {
-  position: absolute;
-  top: 68.4%;
-}
-.nick-bostrom-author-div-circle {
-  background-color: rgb(255, 255, 255);
-  border-radius: 20px;
-  width: 21px;
-  height: 24px;
-  border: 2px solid rgb(255, 110, 245);
-  position: relative;
-  left: -10px;
-  top: -38px;
-  block-size: 20px;
-  transition-duration: 0.2s;
-}
+// Function for the moment the user clicks the yes button on the user login question
+const closeButtonYes = function () {
+  userAnswerYesButton.classList.remove("hidden");
+  questionAnswerNo.classList.add("hidden");
+  overlay.classList.remove("hidden");
+  modalLogin.classList.remove("hidden");
 
-.nick-bostrom-author-div-circle:hover {
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  width: 21px;
-  height: 24px;
-  border: 2px solid rgb(117, 32, 132);
-  position: relative;
-  left: -10px;
-  top: -38px;
-  block-size: 20px;
-  transition-duration: 0.2s;
-}
-#author-Superintelligence {
-  position: relative;
-  top: -1px;
-  left: -0.2px;
-  font-size: 22px;
-  color: rgb(117, 32, 132);
-}
-#author-Superintelligence:hover {
-  position: relative;
-  top: -1px;
-  left: -0.2px;
-  font-size: 22px;
-  color: rgb(117, 32, 132);
-}
-.guess-elon-money {
-  position: relative;
-  top: 90px;
-  margin-left: 30%;
-  font-family: "Roboto";
-  font-weight: 800;
-}
-.guess-elon-money {
-  color: #000000;
-  transition-duration: 0.5s;
-}
-.true-false-buttons-guess-elon-money-div {
-  background-color: #dadada;
-  width: 240px;
-  height: 50px;
-  border-radius: 10px;
-  box-shadow: inset;
-  position: relative;
-  top: 120px;
-  margin-left: 20%;
-  z-index: 4;
-}
-.true-false-buttons-guess-elon-money-div {
-  transition-duration: 0.5s;
-}
-.True-button-guess-elon-money {
-  background-color: rgb(165, 50, 169);
-  font-family: "Roboto";
-  color: #ffffff;
-  border: 2px solid #6b1a9e;
-  border-radius: 10px;
-  width: 100px;
-  height: 30px;
-  font-size: 15px;
-  position: relative;
-  left: 16px;
-  top: 10px;
-  transition-duration: 0.3s;
-}
-.True-button-guess-elon-money:hover {
-  background-color: rgb(187, 117, 189);
-  font-family: "Roboto";
-  color: #ffffff;
-  border: 2px solid #9427d7;
-  border-radius: 10px;
-  width: 100px;
-  height: 30px;
-  font-size: 15px;
-  position: relative;
-  left: 16px;
-  top: 10px;
-  transition-duration: 0.9s;
-}
-.True-button-guess-elon-money:active {
-  background-color: rgb(30, 255, 0);
-  transition-duration: 0.9s;
-  font-family: "Roboto";
-  color: #ffffff;
-  border: 2px solid #b26ad9;
-  border-radius: 10px;
-  width: 100px;
-  height: 30px;
-  font-size: 15px;
-  position: relative;
-  left: 16px;
-  top: 10px;
-}
-.False-button-guess-elon-money {
-  background-color: rgb(131, 11, 135);
-  font-family: "Roboto";
-  color: #ffffff;
-  border: 2px solid #6b1a9e;
-  border-radius: 10px;
-  width: 100px;
-  height: 30px;
-  font-size: 15px;
-  position: relative;
-  left: 20px;
-  top: 10px;
-  transition-duration: 0.3s;
-}
-.False-button-guess-elon-money:hover {
-  background-color: rgb(187, 117, 189);
-  font-family: "Roboto";
-  color: #ffffff;
-  border: 2px solid #9427d7;
-  border-radius: 10px;
-  width: 100px;
-  height: 30px;
-  font-size: 15px;
-  position: relative;
-  left: 20px;
-  top: 10px;
-  transition-duration: 0.9s;
-}
-.False-button-guess-elon-money:active {
-  background-color: rgb(255, 0, 0);
-  transition-duration: 0.9s;
-  font-family: "Roboto";
-  color: #ffffff;
-  border: 2px solid #b26ad9;
-  border-radius: 10px;
-  width: 100px;
-  height: 30px;
-  font-size: 15px;
-  position: relative;
-  left: 20px;
-  top: 10px;
-}
+  setTimeout(function () {
+    userAnswerYesButton.classList.add("hidden");
+    userLoginDiv.classList.add("hidden");
+  }, 700 /* In miliseconds */);
+};
 
-.elon-images-story {
-  background-color: transparent;
-  max-width: 400px;
-  max-height: 400px;
-  width: 320px;
-  height: 400px;
-  position: relative;
-  top: 300px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
-  overflow: hidden;
-}
+questionAnswerYes.addEventListener("click", closeButtonYes);
 
-.elon-images-story-p {
-  position: relative;
-  top: -180px;
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 30px;
-  font-weight: 900;
-  background: radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125));
-  background-size: 190% 200%;
-  background-position: 100% 100%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in;
-}
-.elon-images-story-p:hover {
-  position: relative;
-  top: -180px;
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 30px;
-  font-weight: 400;
-  background: radial-gradient(rgb(131, 25, 163), rgb(206, 75, 204));
-  background-size: 190% 200%;
-  background-position: 100% 100%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-out;
-}
-.elon-images-story-subtitle {
-  position: relative;
-  top: 220px;
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 14px;
-}
-.btn__left {
-  background-color: #979797;
-  border-radius: 30px;
+// If the user completes login form, store the info on an object
 
-  position: relative;
-  left: 30px;
-}
-.btn__right {
-  background-color: #979797;
-  border-radius: 30px;
-  position: relative;
-  left: 320px;
-}
-.slider {
-  max-width: 90rem;
-  height: 50rem;
-  margin: 0 auto;
-  position: relative;
-  top: 500px;
-  /* IN THE END */
-  overflow: hidden;
-}
-.img {
-  position: absolute;
-  width: 100%;
-  height: 50rem;
+const usersData = {
+  userEmail: "",
+  userName: "",
+};
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const nameInput = document.querySelector(".inputName");
+const emailInput = document.querySelector(".inputEmail");
+const okButton = document.querySelector(".inputsOkButton");
+const emptyValueMessage = document.querySelector(".emptyValuesMessage");
+const emptyValueMessage2 = document.querySelector(".emptyValuesMessage2");
+const modalHeader = document.querySelector(".modalHeader");
+const cancelmodal = document.querySelector(".cancelModalButton");
+const cancelmodal2 = document.querySelector(".cancelModalButton2");
+const cancelmodal3 = document.querySelector(".cancelModalButton3");
+const emailNotValid = document.querySelector(".emailNotValidMessage");
+const welcomeUserMessage = document.querySelector(".welcomeUserMessage");
+// Function for when the user clicks the Ok button of the Modal
 
-  /* THIS creates the animation! */
-  transition: transform 0.3s;
-}
-.changeuser-button {
-  position: relative;
-  top: 250px;
-  margin-left: 37%;
-}
-.username-greetings {
-  position: relative;
-  top: -2740px;
-  text-align: center;
-  font-family: "Roboto";
-  background: radial-gradient(rgb(131, 25, 163), rgb(206, 75, 204));
-  background-size: 190% 200%;
-  background-position: 100% 100%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 500;
-  transition-duration: 0.1s;
-}
-.username-greetings:hover {
-  position: relative;
-  top: -2740px;
-  text-align: center;
-  font-family: "Roboto";
-  background: radial-gradient(rgb(206, 75, 204), rgb(131, 25, 163));
-  background-size: 190% 200%;
-  background-position: 100% 100%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 900;
-  transition-duration: 0.1s;
-}
+const acceptModal = function () {
+  const nameValue = nameInput.value;
+  const emailValue = emailInput.value;
+
+  // Define regex for validity of email
+  const emailPattern = /^[a-zA-Z0-9]*@[a-zA-Z]+\.[a-zA-Z]+$/;
+
+  if (!nameValue && !emailValue) {
+    emptyValueMessage.classList.remove("hidden");
+    modalHeader.style.top = "10px";
+    return;
+  } else if (!nameValue || !emailValue) {
+    emptyValueMessage2.classList.remove("hidden");
+    modalHeader.style.top = "10px";
+    return;
+  } else if (!emailPattern.test(emailValue)) {
+    emailNotValid.classList.remove("hidden");
+    return;
+  } else if (emailValue !== "" && nameValue !== "") {
+    emptyValueMessage.classList.add("hidden");
+    emptyValueMessage2.classList.add("hidden");
+    modalHeader.style.top = "35px";
+    modalLogin.classList.add("hidden");
+    overlay.classList.add("hidden");
+
+    usersData.userEmail = emailValue;
+    usersData.userName = nameValue;
+
+    welcomeUserMessage.textContent = `Welcome ${usersData.userName}`;
+
+    return;
+  }
+};
+
+console.log(usersData);
+
+okButton.addEventListener("click", acceptModal);
+
+cancelmodal.addEventListener("click", function () {
+  modalLogin.classList.add("hidden");
+  overlay.classList.add("hidden");
+});
+
+// Dark & White Mode button On and Off
+const circleButton = document.querySelector(".sexyCircle");
+const overallButton = document.querySelector(".DarkWhiteModeDiv");
+const htmlBody = document.querySelector("html");
+const headerBorder = document.querySelector(".header-div");
+const guessElonTitle = document.querySelector(".guess-elon-money");
+const netWorthTitle = document.querySelector(".title1");
+const elonSummary = document.querySelector(".elon-summary");
+const elonMoreInfoLink = document.querySelector(".more-info-elon-wiki");
+const elonProfileX = document.querySelector(".x-logo-elon-profile");
+const divider = document.querySelector(".divider");
+const trueFalseDiv = document.querySelector(
+  ".true-false-buttons-guess-elon-money-div"
+);
+const life30Div = document.querySelector(".life30-div");
+const onWarDiv = document.querySelector(".OnWar-div");
+const superintelligenceDiv = document.querySelector(".Superintelligence-div");
+const life30AuthorProfile = document.querySelector(".author-life30-div-circle");
+const onWarAuthorProfile = document.querySelector(
+  ".carl-von-clausewitz-author-div-circle"
+);
+const superintelligenceAuthorProfile = document.querySelector(
+  ".nick-bostrom-author-div-circle"
+);
+const life30Quote = document.querySelector(".life30-elon-quote");
+const onWarQuote = document.querySelector(".OnWar-elon-quote");
+const superintelligenceQuote = document.querySelector(
+  ".Superintelligence-elon-quote"
+);
+const life30Author = document.querySelector(".max-tegmark-author");
+const onWarAuthor = document.querySelector(".carl-von-clausewitz-author");
+const superintelligenceAuthor = document.querySelector(".nick-bostrom-author");
+const superintelligenceTitle = document.querySelector(
+  ".Superintelligence-title"
+);
+const superintelligenceSubtitle = document.querySelector(
+  ".Superintelligence-subtitle"
+);
+const onWarTitle = document.querySelector(".OnWar-title");
+const onWarSubtitle = document.querySelector(".OnWar-subtitle");
+const life30Title = document.querySelector(".life30-title");
+const life30Subtitle = document.querySelector(".life30-subtitle");
+const clickOnImageMessage = document.querySelector(
+  ".elon-images-story-subtitle"
+);
+const nerdyLogo = document.querySelector(".most-recommended-books-img");
+
+let isOriginalButtonStyle = true;
+
+overallButton.addEventListener("click", function () {
+  if (isOriginalButtonStyle) {
+    circleButton.style.left = "41px";
+    htmlBody.style.backgroundColor = "#000000";
+    headerBorder.style.borderBottom = "1px solid white";
+    guessElonTitle.style.color = "#dadada";
+    netWorthTitle.style.color = "#dadada";
+    elonSummary.style.color = "#dadada";
+    elonMoreInfoLink.style.color = "rgb(197, 13, 178)";
+    elonMoreInfoLink.addEventListener("mouseenter", function () {
+      elonMoreInfoLink.style.color = "rgb(255, 98, 239)";
+    });
+    elonMoreInfoLink.addEventListener("mouseleave", function () {
+      elonMoreInfoLink.style.color = "rgb(255, 6, 230)";
+    });
+    elonProfileX.style.border = "1px solid rgb(255, 0, 230)";
+    elonProfileX.addEventListener("mouseenter", function () {
+      elonProfileX.style.border = "2px solid rgb(255, 0, 230)";
+      elonProfileX.style.top = "-67px";
+      elonProfileX.style.left = "81px";
+    });
+    elonProfileX.addEventListener("mouseleave", function () {
+      elonProfileX.style.border = "1px solid rgb(255, 0, 230)";
+      elonProfileX.style.top = "-66px";
+      elonProfileX.style.left = "82px";
+    });
+    divider.style.color = "white";
+    trueFalseDiv.style.backgroundColor = "#423f3f";
+    life30Div.style.backgroundColor = "#423f3f";
+    life30Quote.style.color = "white";
+    onWarDiv.style.backgroundColor = "#423f3f";
+    onWarQuote.style.color = "white";
+    superintelligenceDiv.style.backgroundColor = "#423f3f";
+    superintelligenceQuote.style.color = "white";
+    life30AuthorProfile.style.border = "2px solid rgb(225, 13, 211)";
+    onWarAuthorProfile.style.border = "2px solid rgb(225, 13, 211)";
+    superintelligenceAuthorProfile.style.border = "2px solid rgb(225, 13, 211)";
+    life30Author.style.color = "rgb(255, 255, 255)";
+    onWarAuthor.style.color = "white ";
+    superintelligenceAuthor.style.color = "white";
+    // life30 title
+    life30Title.style.background =
+      "radial-gradient(rgb(255, 255, 255), rgb(243, 9, 255))";
+    life30Title.style.backgroundSize = "190% 200%";
+    life30Title.style.backgroundPosition = "100% 100%";
+    life30Title.style.backgroundClip = "text";
+    life30Title.style.webkitTextFillColor = "transparent";
+    life30Title.style.marginTop = "16px";
+    life30Title.style.paddingBottom = "12px";
+    // OnWar title
+    onWarTitle.style.background =
+      "radial-gradient(rgb(255, 255, 255), rgb(243, 9, 255))";
+    onWarTitle.style.backgroundSize = "190% 200%";
+    onWarTitle.style.backgroundPosition = "100% 100%";
+    onWarTitle.style.backgroundClip = "text";
+    onWarTitle.style.webkitTextFillColor = "transparent";
+    onWarTitle.style.marginTop = "16px";
+    onWarTitle.style.paddingBottom = "12px";
+    // Superintelligence title
+    superintelligenceTitle.style.background =
+      "radial-gradient(rgb(255, 255, 255), rgb(243, 9, 255))";
+    superintelligenceTitle.style.backgroundSize = "190% 200%";
+    superintelligenceTitle.style.backgroundPosition = "100% 100%";
+    superintelligenceTitle.style.backgroundClip = "text";
+    superintelligenceTitle.style.webkitTextFillColor = "transparent";
+    superintelligenceTitle.style.marginTop = "16px";
+    superintelligenceTitle.style.paddingBottom = "12px";
+    // life30 subtitle
+    life30Subtitle.style.background =
+      "radial-gradient(rgb(243, 9, 255), rgb(255, 255, 255))";
+    life30Subtitle.style.backgroundSize = "190% 200%";
+    life30Subtitle.style.backgroundPosition = "100% 100%";
+    life30Subtitle.style.backgroundClip = "text";
+    life30Subtitle.style.webkitTextFillColor = "transparent";
+    // onwar subtitle
+    onWarSubtitle.style.background =
+      "radial-gradient(rgb(243, 9, 255), rgb(255, 255, 255))";
+    onWarSubtitle.style.backgroundSize = "190% 200%";
+    onWarSubtitle.style.backgroundPosition = "100% 100%";
+    onWarSubtitle.style.backgroundClip = "text";
+    onWarSubtitle.style.webkitTextFillColor = "transparent";
+    // superintelligence subtitle
+    superintelligenceSubtitle.style.background =
+      "radial-gradient(rgb(243, 9, 255), rgb(255, 255, 255))";
+    superintelligenceSubtitle.style.backgroundSize = "190% 200%";
+    superintelligenceSubtitle.style.backgroundPosition = "100% 100%";
+    superintelligenceSubtitle.style.backgroundClip = "text";
+    superintelligenceSubtitle.style.webkitTextFillColor = "transparent";
+
+    clickOnImageMessage.style.color = "white";
+    userLoginDiv.style.backgroundColor = "#423f3f";
+    userLoginQuestion.style.color = "white";
+    nerdyLogo.style.cssText = "transition: opacity 0.1s; opacity: 0;";
+    setTimeout(() => {
+      nerdyLogo.src = "images/nerdyBlack.png";
+      nerdyLogo.style.opacity = "1";
+    }, 500);
+  } else {
+    nerdyLogo.style.cssText = "transition: opacity 0.1s; opacity: 0;";
+    setTimeout(() => {
+      nerdyLogo.src = "images/nerdy.png";
+      nerdyLogo.style.opacity = "1";
+    }, 500);
+    circleButton.style.left = "4px";
+    htmlBody.style.backgroundColor = "transparent";
+    headerBorder.style.borderBottom = "1px solid black";
+    guessElonTitle.style.color = "#000000";
+    netWorthTitle.style.color = "#000000";
+    elonSummary.style.color = "#000000";
+    elonMoreInfoLink.style.color = "1px solid transparent";
+    divider.style.color = "black";
+    trueFalseDiv.style.backgroundColor = "#dadada";
+    life30Div.style.backgroundColor = "rgb(220, 220, 220)";
+    onWarDiv.style.backgroundColor = "rgb(220, 220, 220)";
+    superintelligenceDiv.style.backgroundColor = "rgb(220, 220, 220)";
+    onWarQuote.style.color = "#000000";
+    superintelligenceQuote.style.color = "#000000";
+    life30Quote.style.color = "#000000";
+    life30Author.style.color = "rgb(117, 32, 132)";
+    onWarAuthor.style.color = "rgb(117, 32, 132)";
+    superintelligenceAuthor.style.color = "rgb(117, 32, 132)";
+    // Life30 title
+    life30Title.style.background =
+      "radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125))";
+    life30Title.style.backgroundSize = "190% 200%";
+    life30Title.style.backgroundPosition = "100% 100%";
+    life30Title.style.backgroundClip = "text";
+    life30Title.style.webkitTextFillColor = "transparent";
+    life30Title.style.marginTop = "16px";
+    life30Title.style.paddingBottom = "12px";
+    // OnWar title
+    onWarTitle.style.background =
+      "radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125))";
+    onWarTitle.style.backgroundSize = "190% 200%";
+    onWarTitle.style.backgroundPosition = "100% 100%";
+    onWarTitle.style.backgroundClip = "text";
+    onWarTitle.style.webkitTextFillColor = "transparent";
+    onWarTitle.style.marginTop = "16px";
+    onWarTitle.style.paddingBottom = "12px";
+    // Superintelligence title
+    superintelligenceTitle.style.background =
+      "radial-gradient(rgb(165, 27, 163), rgb(98, 8, 125))";
+    superintelligenceTitle.style.backgroundSize = "190% 200%";
+    superintelligenceTitle.style.backgroundPosition = "100% 100%";
+    superintelligenceTitle.style.backgroundClip = "text";
+    superintelligenceTitle.style.webkitTextFillColor = "transparent";
+    superintelligenceTitle.style.marginTop = "16px";
+    superintelligenceTitle.style.paddingBottom = "12px";
+    // Life30 subtitle
+    life30Subtitle.style.background =
+      "radial-gradient(rgb(255, 111, 255), rgb(38, 1, 50))";
+    life30Subtitle.style.backgroundSize = "190% 200%";
+    life30Subtitle.style.backgroundPosition = "100% 100%";
+    life30Subtitle.style.backgroundClip = "text";
+    life30Subtitle.style.webkitTextFillColor = "transparent";
+    // Onwar subtitle
+    onWarSubtitle.style.background =
+      "radial-gradient(rgb(255, 111, 255), rgb(38, 1, 50))";
+    onWarSubtitle.style.backgroundSize = "190% 200%";
+    onWarSubtitle.style.backgroundPosition = "100% 100%";
+    onWarSubtitle.style.backgroundClip = "text";
+    onWarSubtitle.style.webkitTextFillColor = "transparent";
+    // Superintelligence subtitle
+    superintelligenceSubtitle.style.background =
+      "radial-gradient(rgb(255, 111, 255), rgb(38, 1, 50))";
+    superintelligenceSubtitle.style.backgroundSize = "190% 200%";
+    superintelligenceSubtitle.style.backgroundPosition = "100% 100%";
+    superintelligenceSubtitle.style.backgroundClip = "text";
+    superintelligenceSubtitle.style.webkitTextFillColor = "transparent";
+
+    clickOnImageMessage.style.color = "black";
+    userLoginDiv.style.backgroundColor = "rgb(202, 191, 191)";
+    userLoginQuestion.style.color = "black";
+  }
+
+  isOriginalButtonStyle = !isOriginalButtonStyle;
+});
