@@ -1392,9 +1392,43 @@ html {
   font-family: "Roboto";
   font-size: 14px;
 }
+.btn__left {
+  background-color: #979797;
+  border-radius: 30px;
+
+  position: relative;
+  left: 30px;
+}
+.btn__right {
+  background-color: #979797;
+  border-radius: 30px;
+  position: relative;
+  left: 320px;
+}
+.slider {
+  max-width: 90rem;
+  height: 50rem;
+  margin: 0 auto;
+  position: relative;
+  top: 500px;
+  /* IN THE END */
+  overflow: hidden;
+}
+.img {
+  position: absolute;
+  width: 100%;
+  height: 50rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* THIS creates the animation! */
+  transition: transform 0.3s;
+}
 .changeuser-button {
   position: relative;
-  top: 570px;
+  top: 250px;
   margin-left: 37%;
 }
 .username-greetings {
